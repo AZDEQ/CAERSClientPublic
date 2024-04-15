@@ -30,7 +30,7 @@ public class PostgreSQL {
 		    throw new RuntimeException("Cannot find the driver in the classpath for org.postgresql.Driver!", e);
 		}
 		
-		String url = properties.getProperty("urlRDS");
+		String url = properties.getProperty("PostgreSQLConnectionString");
 		String password = properties.getProperty("password");
 		String user = properties.getProperty("user");
 		try {	

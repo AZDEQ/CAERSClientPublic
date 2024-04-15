@@ -1,6 +1,9 @@
 package main;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Properties;
 
 public class ParseJSON {
@@ -10,13 +13,19 @@ public class ParseJSON {
 		utilities.Log log = new utilities.Log(properties);
 		utilities.PostgreSQL postgreSQL = null;
 		
-		try {			
-			api.Invoke invoke = new api.Invoke(properties);
-			String listAPIResponse = invoke.list();			
-			postgreSQL = new utilities.PostgreSQL(properties);
-			String reportingYear = properties.getProperty("reportingYear");
-			parse.JSON parseJSON = new parse.JSON(properties);
-			parseJSON.list(invoke, postgreSQL, listAPIResponse, reportingYear);
+		try {
+			String reportingYearStartString = properties.getProperty("reportingYearStart");
+			int reportingYearStart = Integer.parseInt(reportingYearStartString);
+			int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+			for (int reportingYearToProcess = reportingYearStart; reportingYearToProcess <= currentYear; reportingYearToProcess++)
+			{
+				properties.setProperty("reportingYearStart", String.valueOf(reportingYearToProcess));
+				api.Invoke invoke = new api.Invoke(properties);
+				String listAPIResponse = invoke.list();			
+				postgreSQL = new utilities.PostgreSQL(properties);
+				parse.JSON parseJSON = new parse.JSON(properties);
+				parseJSON.list(invoke, postgreSQL, listAPIResponse, String.valueOf(reportingYearToProcess));
+			}
 	    }
 		catch (Exception e) {
 			try {

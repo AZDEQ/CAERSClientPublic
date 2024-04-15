@@ -28,7 +28,7 @@ public class Log {
 	
 	public void stringToFile(String stringToWrite, String fileNameProperty) throws IOException
 	{
-		String fileNameDetail = properties.getProperty(fileNameProperty);
+		String fileNameDetail = "C:\\APIOutput\\DetailAPIResponse.txt";
 		BufferedWriter bufferedWriterDetail = new BufferedWriter(new FileWriter(fileNameDetail));
 	    bufferedWriterDetail.write(stringToWrite);	    
 	    bufferedWriterDetail.close();	

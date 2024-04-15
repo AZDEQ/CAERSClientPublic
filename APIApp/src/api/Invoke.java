@@ -30,7 +30,7 @@ public class Invoke {
 		api.BearerToken bearerToken = new api.BearerToken();
 		bearerToken.setProperties(properties);		
 		this.bearerToken = bearerToken.oAuth2();
-		this.reportingYear = properties.getProperty("reportingYear");
+		this.reportingYear = properties.getProperty("reportingYearStart");
     }
     
     public String aPI(String aPIUrl) throws IOException, ParseException, JSONException
