@@ -37,19 +37,54 @@ public class Invoke {
     {
     	HttpURLConnection httpURLConnection = null;
     	httpURLConnection = connect(aPIUrl);
-		int responseCode = httpURLConnection.getResponseCode();
-	    if (responseCode != 200) {
+    	int responseCode = -1;
+    	try
+    	{
+    		responseCode = httpURLConnection.getResponseCode();
+    	}
+    	catch (java.net.SocketTimeoutException e)
+    	{
+    		try
+    		{
+    			System.out.println("SocketTimeoutException. Trying again...");
+    			responseCode = httpURLConnection.getResponseCode();
+    		}
+    		catch (java.net.SocketTimeoutException e1)
+    		{
+    			throw new RuntimeException("HttpResponseCode: " + e.toString());
+    		}
+    	}
+	    
+		if (responseCode != 200) {
 	    	if (responseCode == 401) {
 	    		System.out.println("Bearer Token expired. Refreshing token and trying again...");
 	    		api.BearerToken bearerTokenRefresh = new api.BearerToken();
 	    		bearerTokenRefresh.setProperties(properties);
 	    		this.bearerToken = bearerTokenRefresh.oAuth2();
 	    		httpURLConnection = connect(aPIUrl);
-	    		int responseCodeRefresh = httpURLConnection.getResponseCode();
+	    		int responseCodeRefresh = -1;
+	    		
+	    		try
+	    		{
+	    			responseCodeRefresh = httpURLConnection.getResponseCode();
+	    		}
+	    		catch (java.net.SocketTimeoutException e)
+	    		{
+	    			try
+	    			{
+	    				System.out.println("SocketTimeoutException. Trying again...");
+	    				responseCodeRefresh = httpURLConnection.getResponseCode();
+	    			}
+	    			catch (java.net.SocketTimeoutException e1)
+	    			{
+	    				throw new RuntimeException("HttpResponseCode: " + e1.toString());
+	    			}
+	    		}
+
 	    		if (responseCodeRefresh != 200) {
 	    			throw new RuntimeException("Retried API call after refreshing Bearer Token but failed again. HttpResponseCode: " + responseCode);
 	    		}
-	    	}
+	    	}	    	
 	    	else {
 			    throw new RuntimeException("HttpResponseCode: " + responseCode);	    		
 	    	}
@@ -69,6 +104,10 @@ public class Invoke {
 		httpURLConnection.setRequestProperty("Accept-Encoding","gzip, deflate, br");
 		httpURLConnection.setRequestProperty("Accept","*/*");
 		httpURLConnection.setRequestMethod("GET");
+		String connectTimeoutString = properties.getProperty("connectTimeout");
+		int connectTimeout = Integer.parseInt(connectTimeoutString);			
+		httpURLConnection.setConnectTimeout(connectTimeout);
+		httpURLConnection.setReadTimeout(connectTimeout);
 		httpURLConnection.connect();
 		return httpURLConnection;
     }
