@@ -8,6 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 
+// OAuth 2 authentication. Get client id and secret from config, format access URL and call API.
+// Parse response and return access token
+
 public class BearerToken {
     private Properties properties;
     public Properties getProperties() { return this.properties; }

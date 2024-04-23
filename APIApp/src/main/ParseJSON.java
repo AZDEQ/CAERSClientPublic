@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 
+// Main class. Get values from configuration, invoke List API and parse JSON.
+
 public class ParseJSON {
 	public static void main(String[] args) throws IOException, SQLException {
 		utilities.ReadPropertyFile readPropertyFile = new utilities.ReadPropertyFile();

@@ -11,6 +11,8 @@ import java.util.Properties;
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
+// Class to invoke REST APIs' utilizing OAuth2
+
 public class Invoke {	
     private String bearerToken;
     public String getBearerToken() { return this.bearerToken; }
@@ -32,6 +34,8 @@ public class Invoke {
 		this.bearerToken = bearerToken.oAuth2();
 		this.reportingYear = properties.getProperty("reportingYearStart");
     }
+    
+    // Make API call to EPA REST API. Retry once on timeout.
     
     public String aPI(String aPIUrl) throws IOException, ParseException, JSONException
     {
@@ -94,6 +98,8 @@ public class Invoke {
 	    return stringBuffer; 
 	}    
     
+    // Set connection properties (Bearer Token, etc)
+    
     private HttpURLConnection connect(String aPIUrl) throws IOException
     {
 		URL url = new URL(aPIUrl);
@@ -112,6 +118,8 @@ public class Invoke {
 		return httpURLConnection;
     }
     
+    // Buffer read API response
+    
     private String bufferedReader(HttpURLConnection httpURLConnection) throws IOException
     {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
@@ -125,6 +133,21 @@ public class Invoke {
 	    return stringBuffer.toString();		    	
     }
     
+    // Set up List API URL that pulls reports for a reporting year.
+    // 	Set up Detail API URL that pulls a report by Agency Facility Identifier.
+	//    Certified Facility List for a Reporting Year
+	//    Input
+	//    1. Agency Id, implied from OAuth2 credentials (e.g., AZDEQ_PROD)
+	//    2. Reporting Year (e.g., 2015)
+    //
+	//    Output
+	//    List of facility reports. Each member of the list consists of elements:
+	// 1. Report Id	
+	// 2. Facility Site Identifier (e.g., 3532)
+    // 3. Status
+    // 4. Modified Date
+	// 5. Certified Date Last Updated Date Time (e.g., 2021-07-27T10:00:56.9908326-07:00) or Version Number (e.g., 3)
+    
     public String list() throws IOException, ParseException, JSONException
     {
 	    String listAPIUrlFormat = properties.getProperty("listAPIUrlFormat");
@@ -132,6 +155,14 @@ public class Invoke {
 		String listAPIJson = aPI(listAPIUrl);
 	    return listAPIJson;
     }
+    
+	//    Facility Detail
+	//    Input
+	//    1.	Facility Site Identifier (e.g., 3532)
+	//    2.	Reporting Year (e.g., 2015)
+    //
+	//    Output
+	//    JSON formatted data for facility.    
     
     public String detail(String agencyFacilityIdentifier) throws IOException, ParseException, JSONException
     {
