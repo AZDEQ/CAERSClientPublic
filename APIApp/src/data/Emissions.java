@@ -11,6 +11,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+//Insert values in the emission table such as reporting_period_id, pollutant_code, total_emissions, emissions_uom_code, emissions_factor,
+//emissions_factor_text, emissions_calc_method_code, comments, emissions_numerator_uom, emissions_denominator_uom,
+//calculated_emissions_tons, emissions_factor_formula, total_manual_entry, calculation_comment, overall_control_percent
+//after parsing the detail JSON.
+
 public class Emissions {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object emissionsObject, long reportingPeriodId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

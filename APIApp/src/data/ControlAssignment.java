@@ -14,6 +14,9 @@ import org.json.simple.JSONObject;
 
 import parse.JSON;
 
+// Insert values in the control_assignment table such as control_id, control_path_id,
+// control_path_child_id, sequence_number and percent_apportionment after parsing the detail JSON.
+
 public class ControlAssignment {
 	public static Hashtable<Number, String> insert(utilities.PostgreSQL postgreSQL, Object controlPathDefinitionObject, long facilitySiteId, long controlPathId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

@@ -10,6 +10,9 @@ import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+// Insert values in the control_path_pollutant table such as control_path_id, pollutant_code, percent_reduction
+// after parsing the detail JSON.
+
 public class ControlPathPollutants {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object controlPathPollutantsObject, long controlPathId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

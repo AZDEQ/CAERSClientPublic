@@ -15,6 +15,10 @@ import org.json.simple.JSONValue;
 
 import parse.JSON;
 
+//Insert values in the control_path table such as facility_site_id, description, path_id, percent_control
+//after parsing the detail JSON.
+// Insert ControlPathPollutants after inserting ControlPath
+
 public class ControlPaths {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object controlPathsObject, long facilitySiteId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

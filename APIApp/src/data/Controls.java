@@ -14,6 +14,12 @@ import org.json.simple.JSONValue;
 
 import parse.JSON;
 
+//Insert values in the control table such as facility_site_id, identifier, description, percent_control, status_code,
+//comments, control_measure_code, number_operating_months, start_date, end_date,
+//upgrade_date, upgrade_description, status_year
+//after parsing the detail JSON.
+//ControlPollutants are inserted after inserting a control.
+
 public class Controls {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object controlsObject, long facilitySiteId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{
