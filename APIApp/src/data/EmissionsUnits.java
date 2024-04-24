@@ -13,6 +13,11 @@ import org.json.simple.JSONValue;
 
 import parse.JSON;
 
+//Insert values in the emissions_unit table such as facility_site_id, unit_identifier, description, type_code, status_code,
+//status_year, unit_measure_cd, comments, design_capacity
+//after parsing the detail JSON.
+//EmissionsProcesses are inserted after inserting a emissions_process.
+
 public class EmissionsUnits {	
 	public static void insert(utilities.PostgreSQL postgreSQL, Object emissionsUnitsObject, long facilitySiteId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

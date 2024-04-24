@@ -11,6 +11,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+//Insert values in the facility_site_contact table such as facility_site_id, type, prefix, first_name, last_name,
+//facility_site_id, type, prefix, first_name, last_name,
+//email, phone, phone_ext, street_address, city,
+//state_code, country_code, postal_code, mailing_street_address, mailing_city,
+//mailing_state_code, mailing_country_code, mailing_postal_code, county_code
+//after parsing the detail JSON.
+
 public class FacilityContacts {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object facilityContactsObject, long facilitySiteId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

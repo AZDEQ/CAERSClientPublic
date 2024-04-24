@@ -10,6 +10,9 @@ import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+//Insert values in the facility_naics_xref table such as facility_site_id, naics_code, naics_code_type
+//after parsing the detail JSON.
+
 public class FacilityNAICSXref {	
 	public static void insert(utilities.PostgreSQL postgreSQL, Object facilityNAICSXrefObject, long facilitySiteId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{
