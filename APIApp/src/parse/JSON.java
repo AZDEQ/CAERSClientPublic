@@ -76,6 +76,11 @@ public class JSON {
 		System.out.println("End of processing");
 	}
 
+	// Process statuses SUBMITTED, APPROVED, ADVANCED_QA and RETURNED. Ignore JSON reports with any other status.
+	// If JSON report is not in DB, insert the report
+	// If DB report is stale, delete the report and re-insert it from the JSON feed to get the latest updates
+	// Skip processing if JSON report certified/modified date matches that of the report in the DB
+	
 	private void processReportTracker(api.Invoke invoke, utilities.PostgreSQL postgreSQL, String reportingYear, String reportId,
 			LocalDateTime certifiedOrModifiedDateJSON, String agencyFacilityIdentifier, String status, JSONObject reportTrackerObject) throws IOException, SQLException
 	{
@@ -139,6 +144,8 @@ public class JSON {
 		System.out.println(localDateTimeState + " " + state + " (" + reason + "): Facility Id: " + agencyFacilityIdentifier + "; Report Id: " + reportId + "; Status: " + status + ".");		
 	}
 
+	// Parse JSON ReportTracker object and insert into table report_tracker
+	
 	private void insertReportTracker(utilities.PostgreSQL postgreSQL, JSONObject reportTrackerObject,
 			String reportingYear, api.Invoke invoke, String agencyFacilityIdentifier, String reportId) throws ClassNotFoundException, IOException, SQLException, JSONException, ParseException, org.json.simple.parser.ParseException
 	{
@@ -147,6 +154,8 @@ public class JSON {
 		postgreSQL.getConnection().commit();		
 	}
 
+	// delete row from table report_tracker when the JSON report is stale for a Delete/Insert operation
+	
 	private void deleteReportTracker(utilities.PostgreSQL postgreSQL, String reportingYear, String agencyFacilityIdentifier) throws SQLException
 	{
 		Connection connection = postgreSQL.getConnection();
@@ -156,6 +165,9 @@ public class JSON {
 		preparedStatement.setString(2, agencyFacilityIdentifier);
         preparedStatement.executeUpdate();		
 	}	
+	
+	// Call detail API with Agency Facility Identifier and process report
+	// Start by inserting the Facility Site
 	
 	private void detail(api.Invoke invoke, utilities.PostgreSQL postgreSQL, String agencyFacilityIdentifier, String reportId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException, org.json.simple.parser.ParseException
 	{
@@ -172,6 +184,8 @@ public class JSON {
 		}	
 	}
 
+	// Get Certified/Modified date time from report tracker by Reporting Year and Agency Facility Identifier
+	
 	private LocalDateTime certifiedOrModifiedDate(utilities.PostgreSQL postgreSQL,String reportingYear, String agencyFacilityIdentifier) throws SQLException
 	{
 		LocalDateTime certifiedOrModifiedDate = null;
@@ -198,6 +212,8 @@ public class JSON {
 		
         return certifiedOrModifiedDate;
 	}
+	
+	// Insert into Facility Site table
 	
 	private void facilitySite(String facilitySiteJSON, utilities.PostgreSQL postgreSQL, String agencyFacilityIdentifier, String reportId, String programSystemCode) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

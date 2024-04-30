@@ -26,6 +26,8 @@ public class Log {
         System.out.println("EXCEPTION: " + currentDateTime + ": " + stackTrace);
 	}
 	
+	// Used for debugging only since application is containerized and cannot write to file.
+	
 	public void stringToFile(String stringToWrite, String fileNameProperty) throws IOException
 	{
 		String fileNameDetail = "C:\\APIOutput\\DetailAPIResponse.txt";

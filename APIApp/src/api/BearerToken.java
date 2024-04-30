@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 
-// OAuth 2 authentication. Get client id and secret from config, format access URL and call API.
+// OAuth 2 authentication. Get client id and secret from configuration file, format access URL and call API.
 // Parse response and return access token
 
 public class BearerToken {
@@ -18,6 +18,8 @@ public class BearerToken {
     
     public String oAuth2() throws IOException, ParseException, JSONException
     {
+    	// Get API authorization info from configuration file to obtain bearer token from EPA OAuth2 server
+    	
     	String clientId = properties.getProperty("clientId");
     	String clientSecret = properties.getProperty("clientSecret");
     	String tokenUrl = properties.getProperty("accessTokenURL");
@@ -27,6 +29,9 @@ public class BearerToken {
 		HttpURLConnection connection = null;
 		
 		URL url = new URL(tokenUrl);
+		
+		// Set connection properties
+		
 		connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setDoOutput(true);
@@ -46,6 +51,8 @@ public class BearerToken {
 		String returnValue = "";
 		
 	    try {
+	    	// Extract bearer token from OAuth 2 authorization server API response
+	    	
 	        bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 	        StringBuffer stringBuffer = new StringBuffer();
 		    String output = "";

@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+// PostgreSQL helper class for data updates
+
 public class PostgreSQL {
     private Properties properties;
     public Properties getProperties() { return this.properties; }
@@ -20,6 +22,8 @@ public class PostgreSQL {
     	this.properties = properties;
     	connect();
     }
+    
+    // Create and return a connection object utilizing PostgreSQL endpoint, User and Password that are set in the configuration file
     
 	public Connection connect() throws SQLException, ClassNotFoundException, IOException
 	{	      	
@@ -43,6 +47,8 @@ public class PostgreSQL {
 		return connection;
 	}
 
+	// Create a prepared statement from a string, execute an update and return generated primary key
+	
 	public long insertPreparedStatement(String statement) throws SQLException, ClassNotFoundException, IOException
 	{
 		long key = -1;
@@ -53,6 +59,8 @@ public class PostgreSQL {
         key = resultSet.getLong(1);
         return key;		
 	}
+	
+	// Take a prepared statement as input, execute an update and return generated primary key
 	
 	public long insertPreparedStatement(PreparedStatement preparedStatement) throws SQLException, ClassNotFoundException, IOException
 	{

@@ -35,7 +35,7 @@ public class Invoke {
 		this.reportingYear = properties.getProperty("reportingYearStart");
     }
     
-    // Make API call to EPA REST API. Retry once on timeout.
+    // Make API detail/list REST API call to EPA. Retry once on timeout.
     
     public String aPI(String aPIUrl) throws IOException, ParseException, JSONException
     {
@@ -61,6 +61,10 @@ public class Invoke {
 	    
 		if (responseCode != 200) {
 	    	if (responseCode == 401) {
+	    		
+	    		// Bearer Token may expire for large detail records.
+	    		// Refresh token and retry making the API call once again
+	    		
 	    		System.out.println("Bearer Token expired. Refreshing token and trying again...");
 	    		api.BearerToken bearerTokenRefresh = new api.BearerToken();
 	    		bearerTokenRefresh.setProperties(properties);
@@ -103,6 +107,9 @@ public class Invoke {
     private HttpURLConnection connect(String aPIUrl) throws IOException
     {
 		URL url = new URL(aPIUrl);
+		
+		// Set connection properties, connect and return connection object
+		
 		HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
 		httpURLConnection.setRequestProperty("Authorization", "bearer " + bearerToken);
 		httpURLConnection.setRequestProperty("Content-Type","application/json");
@@ -150,7 +157,9 @@ public class Invoke {
     
     public String list() throws IOException, ParseException, JSONException
     {
-	    String listAPIUrlFormat = properties.getProperty("listAPIUrlFormat");
+    	// Format List URL template with Reporting Year and make list API call.
+    	
+    	String listAPIUrlFormat = properties.getProperty("listAPIUrlFormat");
 	    String listAPIUrl = MessageFormat.format(listAPIUrlFormat, reportingYear);
 		String listAPIJson = aPI(listAPIUrl);
 	    return listAPIJson;
@@ -166,6 +175,8 @@ public class Invoke {
     
     public String detail(String agencyFacilityIdentifier) throws IOException, ParseException, JSONException
     {
+    	// Format Detail URL template with Reporting Year and Agency Facility Identifier and make detail API call.
+    	
 		String detailAPIUrlFormat = properties.getProperty("detailAPIUrlFormat");	
 		String detailAPIUrl = MessageFormat.format(detailAPIUrlFormat, reportingYear, agencyFacilityIdentifier);
 		String detailAPIJson = aPI(detailAPIUrl);		

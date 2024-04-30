@@ -13,7 +13,12 @@ import org.json.simple.JSONValue;
 
 import data.Field;
 
+// Formatting helper class
+
 public class Format {
+	
+	// Extracts field value from JSON object
+	
 	public static String getFieldValueFromObject(JSONObject baseObject, Field field)
 	{
 		String fieldValue = null;
@@ -27,6 +32,8 @@ public class Format {
 		
 		return fieldValue;
 	}		
+	
+	// Extracts child field value from JSON object
 	
 	public static String getFieldValueFromBaseObject(JSONObject baseObject, Field field, Field childField)
 	{
@@ -48,6 +55,8 @@ public class Format {
 		return code;
 	}
 
+	// Extracts numeric field value from JSON object
+	
 	public static Number getNumericFieldValueFromBaseObject(JSONObject baseObject, Field field, Field childField) throws ParseException
 	{
 		Number fieldValueNumber = null;
@@ -72,6 +81,8 @@ public class Format {
 		return fieldValueNumber;
 	}	
 
+	// Extracts field value from JSON array object
+	
 	public static String getFieldValueFromArray(String baseString, Field field) throws ParseException
 	{
 		Object baseObject = JSONValue.parse(baseString);
@@ -141,6 +152,8 @@ public class Format {
 		
 		return fieldValueDate;
 	}
+	
+	// Gets Timestamp field value from JSON object
 	
 	public static java.sql.Timestamp getTimestampFieldValueFromObject(JSONObject baseObject, Field field) throws ParseException
 	{
