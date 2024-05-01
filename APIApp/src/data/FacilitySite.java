@@ -11,6 +11,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+//Insert values in the facility_site table such as report_id, agency_facility_identifier,
+// category_code, source_type_code, name,
+// description, status_code, status_year, program_system_code, street_address,
+// city, state_code, county_code, country_code, postal_code,
+// mailing_street_address, mailing_city, mailing_state_code, mailing_country_code, mailing_postal_code,
+// latitude, longitude
+//after parsing the detail JSON.
+// Insert into child tables FacilityNAICSXref, ReleasePoints, Controls, ControlPaths, EmissionsUnits and 
+// FacilityContacts utilizing the generated Facility Site Id.
+
 public class FacilitySite {	
 	public static void insert(utilities.PostgreSQL postgreSQL, JSONObject facilitySiteObject, String agencyFacilityIdentifier, String reportId, String programSystemCode) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

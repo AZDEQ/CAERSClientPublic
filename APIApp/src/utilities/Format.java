@@ -33,7 +33,7 @@ public class Format {
 		return fieldValue;
 	}		
 	
-	// Extracts child field value from JSON object
+	// Extracts child field value from JSON base object
 	
 	public static String getFieldValueFromBaseObject(JSONObject baseObject, Field field, Field childField)
 	{
@@ -55,7 +55,7 @@ public class Format {
 		return code;
 	}
 
-	// Extracts numeric field value from JSON object
+	// Extract numeric field value from JSON base object
 	
 	public static Number getNumericFieldValueFromBaseObject(JSONObject baseObject, Field field, Field childField) throws ParseException
 	{
@@ -98,11 +98,15 @@ public class Format {
 		return fieldValue;
 	}	
 	
+	// Extract "code" from base JSON object
+	
 	public static String getCodeFromBaseObject(JSONObject baseObject, Field field)
 	{
 		String code = getFieldValueFromBaseObject(baseObject, field, Field.code);
 		return code;
 	}
+	
+	// Extract numeric field from JSON object
 	
 	public static Number getNumericFieldValueFromObject(JSONObject baseObject, Field field) throws ParseException
 	{
@@ -119,6 +123,8 @@ public class Format {
 		return fieldValueNumber;
 	}
 
+	// Extract date field value from JSON object
+	
 	public static Date getDateFieldValueFromObject(JSONObject baseObject, Field field) throws ParseException
 	{
 		Date fieldValueDate = null;

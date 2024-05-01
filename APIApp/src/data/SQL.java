@@ -1,4 +1,7 @@
 package data;
+
+// CRUD Templates used for PostgreSQL
+
 public enum SQL {
 	DELETE_REPORT_TRACKER(
 			"DELETE FROM report_tracker WHERE reporting_year = ? and agency_facility_identifier = ?"),	

@@ -11,6 +11,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+//Insert values in the facility_site_contact table such as
+//emissions_process_id, reporting_period_type_code, emissions_operating_type_code, calculation_parameter_type_code, calculation_parameter_value,
+//calculation_parameter_uom, calculation_material_code, comments, fuel_use_value, fuel_use_uom,
+//fuel_use_material_code, heat_content_value, heat_content_uom
+//after parsing the detail JSON.
+//Insert Emissions and OperatingDetails after inserting facility_site_contact
+
 public class ReportingPeriods {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object reportingPeriodsObject, long emissionsProcessId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

@@ -60,6 +60,8 @@ public class ControlAssignment {
 		
 		return pathIdentificationIdentifiers;
 	}
+	
+	// SELECT Get id from control path for a Facility Site and Path id to insert into Control Assignment
 
 	public static Number GetControlPathChildId(utilities.PostgreSQL postgreSQL, long facilitySiteId, String pathIdentificationIdentifier) throws SQLException
 	{

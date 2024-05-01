@@ -11,6 +11,10 @@ import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+//Insert values in the facility_site_contact table such as
+//release_point_id, emissions_process_id, percent, control_path_id
+//after parsing the detail JSON.
+
 public class ReleasePointApportionment {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object releasePointApportionmentObject, long facilitySiteId, long emissionsProcessId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

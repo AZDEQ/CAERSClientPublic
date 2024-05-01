@@ -9,6 +9,9 @@ import java.text.ParseException;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
 
+//Insert values in the facility_site_contact table such as certified_date, created_date
+//after parsing the detail JSON.
+
 public class ReportTracker {	
 	public static void insert(utilities.PostgreSQL postgreSQL, JSONObject agencyFacilityObject, String reportingYear) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

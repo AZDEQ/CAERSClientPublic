@@ -22,10 +22,23 @@ public class ParseJSON {
 			for (int reportingYearToProcess = reportingYearStart; reportingYearToProcess <= currentYear; reportingYearToProcess++)
 			{
 				properties.setProperty("reportingYearStart", String.valueOf(reportingYearToProcess));
+				
+				// Initialize Invoke object with bearer token
+				
 				api.Invoke invoke = new api.Invoke(properties);
-				String listAPIResponse = invoke.list();			
+				
+				// Get list response to process
+				
+				String listAPIResponse = invoke.list();
+				
 				postgreSQL = new utilities.PostgreSQL(properties);
+						
 				parse.JSON parseJSON = new parse.JSON(properties);
+				
+				// Process List. List will iterate through AFId's and invoke Detail if necessary.
+				// When processing list, start from the root of the JSON (e.g., facilitySite) and
+				// recursively process child branches
+				
 				parseJSON.list(invoke, postgreSQL, listAPIResponse, String.valueOf(reportingYearToProcess));
 			}
 	    }

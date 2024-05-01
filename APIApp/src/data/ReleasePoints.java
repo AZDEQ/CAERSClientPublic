@@ -13,6 +13,15 @@ import org.json.simple.JSONValue;
 
 import parse.JSON;
 
+//Insert values in the facility_site_contact table such as
+//facility_site_id, release_point_identifier, type_code, description
+//stack_height, stack_height_uom_code, stack_diameter, stack_diameter_uom_code, exit_gas_velocity
+//exit_gas_velocity_uom_code, exit_gas_temperature, exit_gas_flow_rate, exit_gas_flow_uom_code, status_code,
+//status_year, latitude, longitude, fugitive_mid_pt2_latitude, fugitive_mid_pt2_longitude,
+//fence_line_distance, fence_line_distance_uom_code, fugitive_height, fugitive_height_uom_code, stack_width,
+//stack_length, stack_width_uom_code, stack_length_uom_code
+//after parsing the detail JSON.
+
 public class ReleasePoints {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object releasePointsObject, long facilitySiteId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

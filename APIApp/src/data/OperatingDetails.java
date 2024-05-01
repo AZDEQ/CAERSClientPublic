@@ -10,6 +10,11 @@ import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+//Insert values in the facility_site_contact table such as
+//reporting_period_id, actual_hours_per_period, avg_hours_per_day, avg_days_per_week,
+//avg_weeks_per_period, percent_winter, percent_spring, percent_summer, percent_fall
+//after parsing the detail JSON.
+
 public class OperatingDetails {
 	public static void insert(utilities.PostgreSQL postgreSQL, Object operatingDetailsObject, long reportingPeriodId) throws IOException, ClassNotFoundException, SQLException, JSONException, ParseException
 	{

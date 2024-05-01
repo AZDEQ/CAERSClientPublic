@@ -1,5 +1,7 @@
 package data;
 
+// Detail API JSON response field element mapping to database column names
+
 public enum Field {
 	actualHoursPerPeriod("actual_hours_per_period"),
 	addressText("street_address"),

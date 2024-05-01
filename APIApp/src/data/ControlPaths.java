@@ -50,6 +50,8 @@ public class ControlPaths {
 			}
 		}
 		
+		// Retrieve Control Path Child Id using Path Identification Identifiers and update Control Assignment
+		
 		Enumeration<Number> controlPathIds = pathIdentificationIdentifiers.keys();
 		while (controlPathIds.hasMoreElements()) {
 			Number controlPathId = controlPathIds.nextElement();

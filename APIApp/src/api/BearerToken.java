@@ -77,6 +77,8 @@ public class BearerToken {
 	        connection.disconnect();        	        
 	    }
 	  	
+	    // Extract bearer token from JSON response and return
+	    
 	    JSONObject jsonObjectAPIResponse = new JSONObject(returnValue);
 	    Object accessToken = jsonObjectAPIResponse.get("access_token");
 	    return accessToken.toString();
