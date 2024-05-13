@@ -5,7 +5,7 @@
 -- Dumped from database version 14.7
 -- Dumped by pg_dump version 14.1
 
--- Started on 2024-01-29 13:54:14
+-- Started on 2024-05-13 11:19:45
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,42 +18,31 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- TOC entry 3 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- TOC entry 4796 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 209 (class 1259 OID 16429)
--- Name: Age; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."Age" (
-    "Code" integer,
-    "Age" integer
-);
-
-
-ALTER TABLE public."Age" OWNER TO postgres;
-
---
--- TOC entry 210 (class 1259 OID 16432)
--- Name: admin_properties; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.admin_properties (
-    name character varying(64) NOT NULL,
-    value character varying(2000),
-    label character varying(64) NOT NULL,
-    description character varying(255) NOT NULL,
-    datatype character varying(20) NOT NULL,
-    required boolean DEFAULT true NOT NULL
-);
-
-
-ALTER TABLE public.admin_properties OWNER TO postgres;
-
---
--- TOC entry 211 (class 1259 OID 16438)
+-- TOC entry 209 (class 1259 OID 16438)
 -- Name: agency; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -67,7 +56,7 @@ CREATE TABLE public.agency (
 ALTER TABLE public.agency OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 16441)
+-- TOC entry 210 (class 1259 OID 16441)
 -- Name: aircraft_engine_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -86,7 +75,7 @@ CREATE TABLE public.aircraft_engine_type_code (
 ALTER TABLE public.aircraft_engine_type_code OWNER TO postgres;
 
 --
--- TOC entry 213 (class 1259 OID 16444)
+-- TOC entry 211 (class 1259 OID 16444)
 -- Name: attachment; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -108,7 +97,7 @@ CREATE TABLE public.attachment (
 ALTER TABLE public.attachment OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1259 OID 16451)
+-- TOC entry 212 (class 1259 OID 16451)
 -- Name: calculation_material_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -125,7 +114,7 @@ CREATE TABLE public.calculation_material_code (
 ALTER TABLE public.calculation_material_code OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 16455)
+-- TOC entry 213 (class 1259 OID 16455)
 -- Name: calculation_method_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -141,7 +130,7 @@ CREATE TABLE public.calculation_method_code (
 ALTER TABLE public.calculation_method_code OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 16458)
+-- TOC entry 214 (class 1259 OID 16458)
 -- Name: calculation_parameter_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -154,7 +143,7 @@ CREATE TABLE public.calculation_parameter_type_code (
 ALTER TABLE public.calculation_parameter_type_code OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 16461)
+-- TOC entry 215 (class 1259 OID 16461)
 -- Name: communication; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -176,7 +165,7 @@ CREATE TABLE public.communication (
 ALTER TABLE public.communication OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 16468)
+-- TOC entry 216 (class 1259 OID 16468)
 -- Name: communication_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -191,8 +180,8 @@ CREATE SEQUENCE public.communication_id_seq
 ALTER TABLE public.communication_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4872 (class 0 OID 0)
--- Dependencies: 218
+-- TOC entry 4798 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: communication_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -200,7 +189,7 @@ ALTER SEQUENCE public.communication_id_seq OWNED BY public.communication.id;
 
 
 --
--- TOC entry 219 (class 1259 OID 16469)
+-- TOC entry 217 (class 1259 OID 16469)
 -- Name: contact_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -213,7 +202,7 @@ CREATE TABLE public.contact_type_code (
 ALTER TABLE public.contact_type_code OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 16472)
+-- TOC entry 218 (class 1259 OID 16472)
 -- Name: control; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -240,7 +229,7 @@ CREATE TABLE public.control (
 ALTER TABLE public.control OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 16479)
+-- TOC entry 219 (class 1259 OID 16479)
 -- Name: control_assignment; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -257,7 +246,7 @@ CREATE TABLE public.control_assignment (
 ALTER TABLE public.control_assignment OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 16486)
+-- TOC entry 220 (class 1259 OID 16486)
 -- Name: control_assignment_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -272,8 +261,8 @@ CREATE SEQUENCE public.control_assignment_id_seq
 ALTER TABLE public.control_assignment_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4873 (class 0 OID 0)
--- Dependencies: 222
+-- TOC entry 4799 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: control_assignment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -281,7 +270,7 @@ ALTER SEQUENCE public.control_assignment_id_seq OWNED BY public.control_assignme
 
 
 --
--- TOC entry 315 (class 1259 OID 98352)
+-- TOC entry 302 (class 1259 OID 98352)
 -- Name: control_assignment_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -296,7 +285,7 @@ ALTER TABLE public.control_assignment ALTER COLUMN id ADD GENERATED ALWAYS AS ID
 
 
 --
--- TOC entry 223 (class 1259 OID 16487)
+-- TOC entry 221 (class 1259 OID 16487)
 -- Name: control_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -311,8 +300,8 @@ CREATE SEQUENCE public.control_id_seq
 ALTER TABLE public.control_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4874 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4800 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: control_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -320,7 +309,7 @@ ALTER SEQUENCE public.control_id_seq OWNED BY public.control.id;
 
 
 --
--- TOC entry 312 (class 1259 OID 98320)
+-- TOC entry 299 (class 1259 OID 98320)
 -- Name: control_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -335,7 +324,7 @@ ALTER TABLE public.control ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 224 (class 1259 OID 16488)
+-- TOC entry 222 (class 1259 OID 16488)
 -- Name: control_measure_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -350,7 +339,7 @@ CREATE TABLE public.control_measure_code (
 ALTER TABLE public.control_measure_code OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 16491)
+-- TOC entry 223 (class 1259 OID 16491)
 -- Name: control_path; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -366,7 +355,7 @@ CREATE TABLE public.control_path (
 ALTER TABLE public.control_path OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 16498)
+-- TOC entry 224 (class 1259 OID 16498)
 -- Name: control_path_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -381,8 +370,8 @@ CREATE SEQUENCE public.control_path_id_seq
 ALTER TABLE public.control_path_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4875 (class 0 OID 0)
--- Dependencies: 226
+-- TOC entry 4801 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: control_path_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -390,7 +379,7 @@ ALTER SEQUENCE public.control_path_id_seq OWNED BY public.control_path.id;
 
 
 --
--- TOC entry 227 (class 1259 OID 16499)
+-- TOC entry 225 (class 1259 OID 16499)
 -- Name: control_path_pollutant; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -405,7 +394,7 @@ CREATE TABLE public.control_path_pollutant (
 ALTER TABLE public.control_path_pollutant OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 16506)
+-- TOC entry 226 (class 1259 OID 16506)
 -- Name: control_path_pollutant_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -420,8 +409,8 @@ CREATE SEQUENCE public.control_path_pollutant_id_seq
 ALTER TABLE public.control_path_pollutant_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4876 (class 0 OID 0)
--- Dependencies: 228
+-- TOC entry 4802 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: control_path_pollutant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -429,7 +418,7 @@ ALTER SEQUENCE public.control_path_pollutant_id_seq OWNED BY public.control_path
 
 
 --
--- TOC entry 314 (class 1259 OID 98344)
+-- TOC entry 301 (class 1259 OID 98344)
 -- Name: control_path_pollutant_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -444,7 +433,7 @@ ALTER TABLE public.control_path_pollutant ALTER COLUMN id ADD GENERATED ALWAYS A
 
 
 --
--- TOC entry 229 (class 1259 OID 16507)
+-- TOC entry 227 (class 1259 OID 16507)
 -- Name: control_pollutant; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -459,7 +448,7 @@ CREATE TABLE public.control_pollutant (
 ALTER TABLE public.control_pollutant OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 16514)
+-- TOC entry 228 (class 1259 OID 16514)
 -- Name: control_pollutant_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -474,8 +463,8 @@ CREATE SEQUENCE public.control_pollutant_id_seq
 ALTER TABLE public.control_pollutant_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4877 (class 0 OID 0)
--- Dependencies: 230
+-- TOC entry 4803 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: control_pollutant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -483,7 +472,7 @@ ALTER SEQUENCE public.control_pollutant_id_seq OWNED BY public.control_pollutant
 
 
 --
--- TOC entry 313 (class 1259 OID 98328)
+-- TOC entry 300 (class 1259 OID 98328)
 -- Name: control_pollutant_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -498,7 +487,7 @@ ALTER TABLE public.control_pollutant ALTER COLUMN id ADD GENERATED ALWAYS AS IDE
 
 
 --
--- TOC entry 231 (class 1259 OID 16515)
+-- TOC entry 229 (class 1259 OID 16515)
 -- Name: eis_latlong_tolerance_lookup; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -511,95 +500,7 @@ CREATE TABLE public.eis_latlong_tolerance_lookup (
 ALTER TABLE public.eis_latlong_tolerance_lookup OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 16520)
--- Name: eis_transaction_attachment; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.eis_transaction_attachment (
-    id bigint NOT NULL,
-    eis_transaction_history_id bigint NOT NULL,
-    file_name character varying(255) NOT NULL,
-    attachment oid NOT NULL,
-    file_type character varying(1000) NOT NULL,
-    created_by character varying(255) NOT NULL,
-    created_date timestamp without time zone DEFAULT now() NOT NULL,
-    last_modified_by character varying(255) NOT NULL,
-    last_modified_date timestamp without time zone DEFAULT now() NOT NULL
-);
-
-
-ALTER TABLE public.eis_transaction_attachment OWNER TO postgres;
-
---
--- TOC entry 233 (class 1259 OID 16527)
--- Name: eis_transaction_attachment_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.eis_transaction_attachment_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.eis_transaction_attachment_id_seq OWNER TO postgres;
-
---
--- TOC entry 4878 (class 0 OID 0)
--- Dependencies: 233
--- Name: eis_transaction_attachment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.eis_transaction_attachment_id_seq OWNED BY public.eis_transaction_attachment.id;
-
-
---
--- TOC entry 234 (class 1259 OID 16528)
--- Name: eis_transaction_history; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.eis_transaction_history (
-    id bigint NOT NULL,
-    eis_sub_status character varying(32) NOT NULL,
-    transaction_id character varying(80) NOT NULL,
-    submitter_name character varying(255) NOT NULL,
-    created_by character varying(255) NOT NULL,
-    created_date timestamp without time zone DEFAULT now() NOT NULL,
-    last_modified_by character varying(255) NOT NULL,
-    last_modified_date timestamp without time zone DEFAULT now() NOT NULL,
-    program_system_code character varying(20)
-);
-
-
-ALTER TABLE public.eis_transaction_history OWNER TO postgres;
-
---
--- TOC entry 235 (class 1259 OID 16535)
--- Name: eis_transaction_history_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.eis_transaction_history_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.eis_transaction_history_id_seq OWNER TO postgres;
-
---
--- TOC entry 4879 (class 0 OID 0)
--- Dependencies: 235
--- Name: eis_transaction_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.eis_transaction_history_id_seq OWNED BY public.eis_transaction_history.id;
-
-
---
--- TOC entry 236 (class 1259 OID 16536)
+-- TOC entry 230 (class 1259 OID 16536)
 -- Name: eis_tri_xref; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -613,7 +514,7 @@ CREATE TABLE public.eis_tri_xref (
 ALTER TABLE public.eis_tri_xref OWNER TO postgres;
 
 --
--- TOC entry 237 (class 1259 OID 16539)
+-- TOC entry 231 (class 1259 OID 16539)
 -- Name: eis_tri_xref_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -628,8 +529,8 @@ CREATE SEQUENCE public.eis_tri_xref_id_seq
 ALTER TABLE public.eis_tri_xref_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4880 (class 0 OID 0)
--- Dependencies: 237
+-- TOC entry 4804 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: eis_tri_xref_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -637,7 +538,7 @@ ALTER SEQUENCE public.eis_tri_xref_id_seq OWNED BY public.eis_tri_xref.id;
 
 
 --
--- TOC entry 238 (class 1259 OID 16540)
+-- TOC entry 232 (class 1259 OID 16540)
 -- Name: emission; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -666,7 +567,7 @@ CREATE TABLE public.emission (
 ALTER TABLE public.emission OWNER TO postgres;
 
 --
--- TOC entry 239 (class 1259 OID 16549)
+-- TOC entry 233 (class 1259 OID 16549)
 -- Name: emission_factor; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -694,7 +595,7 @@ CREATE TABLE public.emission_factor (
 ALTER TABLE public.emission_factor OWNER TO postgres;
 
 --
--- TOC entry 240 (class 1259 OID 16555)
+-- TOC entry 234 (class 1259 OID 16555)
 -- Name: emission_factor_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -709,8 +610,8 @@ CREATE SEQUENCE public.emission_factor_id_seq
 ALTER TABLE public.emission_factor_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4881 (class 0 OID 0)
--- Dependencies: 240
+-- TOC entry 4805 (class 0 OID 0)
+-- Dependencies: 234
 -- Name: emission_factor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -718,7 +619,7 @@ ALTER SEQUENCE public.emission_factor_id_seq OWNED BY public.emission_factor.id;
 
 
 --
--- TOC entry 241 (class 1259 OID 16556)
+-- TOC entry 235 (class 1259 OID 16556)
 -- Name: emission_formula_variable; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -733,7 +634,7 @@ CREATE TABLE public.emission_formula_variable (
 ALTER TABLE public.emission_formula_variable OWNER TO postgres;
 
 --
--- TOC entry 242 (class 1259 OID 16563)
+-- TOC entry 236 (class 1259 OID 16563)
 -- Name: emission_formula_variable_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -747,7 +648,7 @@ CREATE TABLE public.emission_formula_variable_code (
 ALTER TABLE public.emission_formula_variable_code OWNER TO postgres;
 
 --
--- TOC entry 243 (class 1259 OID 16566)
+-- TOC entry 237 (class 1259 OID 16566)
 -- Name: emission_formula_variable_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -762,8 +663,8 @@ CREATE SEQUENCE public.emission_formula_variable_id_seq
 ALTER TABLE public.emission_formula_variable_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4882 (class 0 OID 0)
--- Dependencies: 243
+-- TOC entry 4806 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: emission_formula_variable_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -771,7 +672,7 @@ ALTER SEQUENCE public.emission_formula_variable_id_seq OWNED BY public.emission_
 
 
 --
--- TOC entry 310 (class 1259 OID 81931)
+-- TOC entry 297 (class 1259 OID 81931)
 -- Name: emission_formula_variable_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -786,7 +687,7 @@ ALTER TABLE public.emission_formula_variable ALTER COLUMN id ADD GENERATED ALWAY
 
 
 --
--- TOC entry 244 (class 1259 OID 16567)
+-- TOC entry 238 (class 1259 OID 16567)
 -- Name: emission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -801,8 +702,8 @@ CREATE SEQUENCE public.emission_id_seq
 ALTER TABLE public.emission_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4883 (class 0 OID 0)
--- Dependencies: 244
+-- TOC entry 4807 (class 0 OID 0)
+-- Dependencies: 238
 -- Name: emission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -810,7 +711,7 @@ ALTER SEQUENCE public.emission_id_seq OWNED BY public.emission.id;
 
 
 --
--- TOC entry 245 (class 1259 OID 16568)
+-- TOC entry 239 (class 1259 OID 16568)
 -- Name: emissions_operating_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -824,7 +725,7 @@ CREATE TABLE public.emissions_operating_type_code (
 ALTER TABLE public.emissions_operating_type_code OWNER TO postgres;
 
 --
--- TOC entry 246 (class 1259 OID 16571)
+-- TOC entry 240 (class 1259 OID 16571)
 -- Name: emissions_process; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -848,7 +749,7 @@ CREATE TABLE public.emissions_process (
 ALTER TABLE public.emissions_process OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1259 OID 16578)
+-- TOC entry 241 (class 1259 OID 16578)
 -- Name: emissions_process_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -863,8 +764,8 @@ CREATE SEQUENCE public.emissions_process_id_seq
 ALTER TABLE public.emissions_process_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4884 (class 0 OID 0)
--- Dependencies: 247
+-- TOC entry 4808 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: emissions_process_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -872,7 +773,7 @@ ALTER SEQUENCE public.emissions_process_id_seq OWNED BY public.emissions_process
 
 
 --
--- TOC entry 305 (class 1259 OID 65560)
+-- TOC entry 292 (class 1259 OID 65560)
 -- Name: emissions_process_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -887,7 +788,7 @@ ALTER TABLE public.emissions_process ALTER COLUMN id ADD GENERATED ALWAYS AS IDE
 
 
 --
--- TOC entry 248 (class 1259 OID 16579)
+-- TOC entry 242 (class 1259 OID 16579)
 -- Name: emissions_report; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -919,7 +820,7 @@ CREATE TABLE public.emissions_report (
 ALTER TABLE public.emissions_report OWNER TO postgres;
 
 --
--- TOC entry 249 (class 1259 OID 16588)
+-- TOC entry 243 (class 1259 OID 16588)
 -- Name: emissions_report_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -934,8 +835,8 @@ CREATE SEQUENCE public.emissions_report_id_seq
 ALTER TABLE public.emissions_report_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4885 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 4809 (class 0 OID 0)
+-- Dependencies: 243
 -- Name: emissions_report_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -943,7 +844,7 @@ ALTER SEQUENCE public.emissions_report_id_seq OWNED BY public.emissions_report.i
 
 
 --
--- TOC entry 250 (class 1259 OID 16589)
+-- TOC entry 244 (class 1259 OID 16589)
 -- Name: emissions_unit; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -965,7 +866,7 @@ CREATE TABLE public.emissions_unit (
 ALTER TABLE public.emissions_unit OWNER TO postgres;
 
 --
--- TOC entry 251 (class 1259 OID 16596)
+-- TOC entry 245 (class 1259 OID 16596)
 -- Name: emissions_unit_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -980,8 +881,8 @@ CREATE SEQUENCE public.emissions_unit_id_seq
 ALTER TABLE public.emissions_unit_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4886 (class 0 OID 0)
--- Dependencies: 251
+-- TOC entry 4810 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: emissions_unit_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -989,7 +890,7 @@ ALTER SEQUENCE public.emissions_unit_id_seq OWNED BY public.emissions_unit.id;
 
 
 --
--- TOC entry 304 (class 1259 OID 65554)
+-- TOC entry 291 (class 1259 OID 65554)
 -- Name: emissions_unit_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1004,7 +905,7 @@ ALTER TABLE public.emissions_unit ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTI
 
 
 --
--- TOC entry 252 (class 1259 OID 16597)
+-- TOC entry 246 (class 1259 OID 16597)
 -- Name: energy_conversion_factor; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1022,7 +923,7 @@ CREATE TABLE public.energy_conversion_factor (
 ALTER TABLE public.energy_conversion_factor OWNER TO postgres;
 
 --
--- TOC entry 253 (class 1259 OID 16602)
+-- TOC entry 247 (class 1259 OID 16602)
 -- Name: energy_conversion_factor_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1037,8 +938,8 @@ CREATE SEQUENCE public.energy_conversion_factor_id_seq
 ALTER TABLE public.energy_conversion_factor_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4887 (class 0 OID 0)
--- Dependencies: 253
+-- TOC entry 4811 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: energy_conversion_factor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1046,7 +947,7 @@ ALTER SEQUENCE public.energy_conversion_factor_id_seq OWNED BY public.energy_con
 
 
 --
--- TOC entry 254 (class 1259 OID 16603)
+-- TOC entry 248 (class 1259 OID 16603)
 -- Name: facility_category_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1060,7 +961,7 @@ CREATE TABLE public.facility_category_code (
 ALTER TABLE public.facility_category_code OWNER TO postgres;
 
 --
--- TOC entry 255 (class 1259 OID 16606)
+-- TOC entry 249 (class 1259 OID 16606)
 -- Name: facility_site; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1096,7 +997,7 @@ CREATE TABLE public.facility_site (
 ALTER TABLE public.facility_site OWNER TO postgres;
 
 --
--- TOC entry 256 (class 1259 OID 16613)
+-- TOC entry 250 (class 1259 OID 16613)
 -- Name: facility_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1111,8 +1012,8 @@ CREATE SEQUENCE public.facility_id_seq
 ALTER TABLE public.facility_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4888 (class 0 OID 0)
--- Dependencies: 256
+-- TOC entry 4812 (class 0 OID 0)
+-- Dependencies: 250
 -- Name: facility_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1120,7 +1021,7 @@ ALTER SEQUENCE public.facility_id_seq OWNED BY public.facility_site.id;
 
 
 --
--- TOC entry 257 (class 1259 OID 16614)
+-- TOC entry 251 (class 1259 OID 16614)
 -- Name: facility_naics_xref; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1135,7 +1036,7 @@ CREATE TABLE public.facility_naics_xref (
 ALTER TABLE public.facility_naics_xref OWNER TO postgres;
 
 --
--- TOC entry 258 (class 1259 OID 16621)
+-- TOC entry 252 (class 1259 OID 16621)
 -- Name: facility_naics_xref_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1150,8 +1051,8 @@ CREATE SEQUENCE public.facility_naics_xref_id_seq
 ALTER TABLE public.facility_naics_xref_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4889 (class 0 OID 0)
--- Dependencies: 258
+-- TOC entry 4813 (class 0 OID 0)
+-- Dependencies: 252
 -- Name: facility_naics_xref_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1159,7 +1060,7 @@ ALTER SEQUENCE public.facility_naics_xref_id_seq OWNED BY public.facility_naics_
 
 
 --
--- TOC entry 308 (class 1259 OID 73796)
+-- TOC entry 295 (class 1259 OID 73796)
 -- Name: facility_naics_xref_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1174,7 +1075,7 @@ ALTER TABLE public.facility_naics_xref ALTER COLUMN id ADD GENERATED ALWAYS AS I
 
 
 --
--- TOC entry 259 (class 1259 OID 16622)
+-- TOC entry 253 (class 1259 OID 16622)
 -- Name: facility_site_contact; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1205,7 +1106,7 @@ CREATE TABLE public.facility_site_contact (
 ALTER TABLE public.facility_site_contact OWNER TO postgres;
 
 --
--- TOC entry 260 (class 1259 OID 16629)
+-- TOC entry 254 (class 1259 OID 16629)
 -- Name: facility_site_contact_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1220,8 +1121,8 @@ CREATE SEQUENCE public.facility_site_contact_id_seq
 ALTER TABLE public.facility_site_contact_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4890 (class 0 OID 0)
--- Dependencies: 260
+-- TOC entry 4814 (class 0 OID 0)
+-- Dependencies: 254
 -- Name: facility_site_contact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1229,7 +1130,7 @@ ALTER SEQUENCE public.facility_site_contact_id_seq OWNED BY public.facility_site
 
 
 --
--- TOC entry 317 (class 1259 OID 180235)
+-- TOC entry 304 (class 1259 OID 180235)
 -- Name: facility_site_contact_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1244,7 +1145,7 @@ ALTER TABLE public.facility_site_contact ALTER COLUMN id ADD GENERATED ALWAYS AS
 
 
 --
--- TOC entry 306 (class 1259 OID 73739)
+-- TOC entry 293 (class 1259 OID 73739)
 -- Name: facility_site_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1259,7 +1160,7 @@ ALTER TABLE public.facility_site ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 261 (class 1259 OID 16630)
+-- TOC entry 255 (class 1259 OID 16630)
 -- Name: facility_source_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1273,7 +1174,7 @@ CREATE TABLE public.facility_source_type_code (
 ALTER TABLE public.facility_source_type_code OWNER TO postgres;
 
 --
--- TOC entry 262 (class 1259 OID 16633)
+-- TOC entry 256 (class 1259 OID 16633)
 -- Name: fips_country_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1286,7 +1187,7 @@ CREATE TABLE public.fips_country_code (
 ALTER TABLE public.fips_country_code OWNER TO postgres;
 
 --
--- TOC entry 263 (class 1259 OID 16636)
+-- TOC entry 257 (class 1259 OID 16636)
 -- Name: fips_county; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1302,7 +1203,7 @@ CREATE TABLE public.fips_county (
 ALTER TABLE public.fips_county OWNER TO postgres;
 
 --
--- TOC entry 264 (class 1259 OID 16639)
+-- TOC entry 258 (class 1259 OID 16639)
 -- Name: fips_state_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1316,7 +1217,7 @@ CREATE TABLE public.fips_state_code (
 ALTER TABLE public.fips_state_code OWNER TO postgres;
 
 --
--- TOC entry 265 (class 1259 OID 16642)
+-- TOC entry 259 (class 1259 OID 16642)
 -- Name: hap_facility_category_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1329,7 +1230,7 @@ CREATE TABLE public.hap_facility_category_code (
 ALTER TABLE public.hap_facility_category_code OWNER TO postgres;
 
 --
--- TOC entry 266 (class 1259 OID 16645)
+-- TOC entry 260 (class 1259 OID 16645)
 -- Name: master_facility_naics_xref; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1348,7 +1249,7 @@ CREATE TABLE public.master_facility_naics_xref (
 ALTER TABLE public.master_facility_naics_xref OWNER TO postgres;
 
 --
--- TOC entry 267 (class 1259 OID 16652)
+-- TOC entry 261 (class 1259 OID 16652)
 -- Name: master_facility_naics_xref_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1363,8 +1264,8 @@ CREATE SEQUENCE public.master_facility_naics_xref_id_seq
 ALTER TABLE public.master_facility_naics_xref_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4891 (class 0 OID 0)
--- Dependencies: 267
+-- TOC entry 4815 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: master_facility_naics_xref_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1372,7 +1273,7 @@ ALTER SEQUENCE public.master_facility_naics_xref_id_seq OWNED BY public.master_f
 
 
 --
--- TOC entry 268 (class 1259 OID 16653)
+-- TOC entry 262 (class 1259 OID 16653)
 -- Name: master_facility_record; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1411,7 +1312,7 @@ CREATE TABLE public.master_facility_record (
 ALTER TABLE public.master_facility_record OWNER TO postgres;
 
 --
--- TOC entry 269 (class 1259 OID 16660)
+-- TOC entry 263 (class 1259 OID 16660)
 -- Name: master_facility_record_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1426,8 +1327,8 @@ CREATE SEQUENCE public.master_facility_record_id_seq
 ALTER TABLE public.master_facility_record_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4892 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 4816 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: master_facility_record_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1435,7 +1336,7 @@ ALTER SEQUENCE public.master_facility_record_id_seq OWNED BY public.master_facil
 
 
 --
--- TOC entry 270 (class 1259 OID 16661)
+-- TOC entry 264 (class 1259 OID 16661)
 -- Name: monthly_fuel_reporting; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1481,7 +1382,7 @@ CREATE TABLE public.monthly_fuel_reporting (
 ALTER TABLE public.monthly_fuel_reporting OWNER TO postgres;
 
 --
--- TOC entry 271 (class 1259 OID 16669)
+-- TOC entry 265 (class 1259 OID 16669)
 -- Name: monthly_fuel_reporting_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1496,8 +1397,8 @@ CREATE SEQUENCE public.monthly_fuel_reporting_id_seq
 ALTER TABLE public.monthly_fuel_reporting_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4893 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 4817 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: monthly_fuel_reporting_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1505,7 +1406,7 @@ ALTER SEQUENCE public.monthly_fuel_reporting_id_seq OWNED BY public.monthly_fuel
 
 
 --
--- TOC entry 272 (class 1259 OID 16671)
+-- TOC entry 266 (class 1259 OID 16671)
 -- Name: naics_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1520,7 +1421,7 @@ CREATE TABLE public.naics_code (
 ALTER TABLE public.naics_code OWNER TO postgres;
 
 --
--- TOC entry 273 (class 1259 OID 16674)
+-- TOC entry 267 (class 1259 OID 16674)
 -- Name: naics_code_industry; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1533,7 +1434,7 @@ CREATE TABLE public.naics_code_industry (
 ALTER TABLE public.naics_code_industry OWNER TO postgres;
 
 --
--- TOC entry 274 (class 1259 OID 16677)
+-- TOC entry 268 (class 1259 OID 16677)
 -- Name: operating_detail; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1554,7 +1455,7 @@ CREATE TABLE public.operating_detail (
 ALTER TABLE public.operating_detail OWNER TO postgres;
 
 --
--- TOC entry 275 (class 1259 OID 16684)
+-- TOC entry 269 (class 1259 OID 16684)
 -- Name: operating_detail_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1569,8 +1470,8 @@ CREATE SEQUENCE public.operating_detail_id_seq
 ALTER TABLE public.operating_detail_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4894 (class 0 OID 0)
--- Dependencies: 275
+-- TOC entry 4818 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: operating_detail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1578,7 +1479,7 @@ ALTER SEQUENCE public.operating_detail_id_seq OWNED BY public.operating_detail.i
 
 
 --
--- TOC entry 311 (class 1259 OID 81932)
+-- TOC entry 298 (class 1259 OID 81932)
 -- Name: operating_detail_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1593,7 +1494,7 @@ ALTER TABLE public.operating_detail ALTER COLUMN id ADD GENERATED ALWAYS AS IDEN
 
 
 --
--- TOC entry 276 (class 1259 OID 16685)
+-- TOC entry 270 (class 1259 OID 16685)
 -- Name: operating_status_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1608,7 +1509,7 @@ CREATE TABLE public.operating_status_code (
 ALTER TABLE public.operating_status_code OWNER TO postgres;
 
 --
--- TOC entry 277 (class 1259 OID 16688)
+-- TOC entry 271 (class 1259 OID 16688)
 -- Name: point_source_scc_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1631,7 +1532,7 @@ CREATE TABLE public.point_source_scc_code (
 ALTER TABLE public.point_source_scc_code OWNER TO postgres;
 
 --
--- TOC entry 278 (class 1259 OID 16695)
+-- TOC entry 272 (class 1259 OID 16695)
 -- Name: pollutant; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1649,7 +1550,7 @@ CREATE TABLE public.pollutant (
 ALTER TABLE public.pollutant OWNER TO postgres;
 
 --
--- TOC entry 279 (class 1259 OID 16698)
+-- TOC entry 273 (class 1259 OID 16698)
 -- Name: program_system_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1662,7 +1563,7 @@ CREATE TABLE public.program_system_code (
 ALTER TABLE public.program_system_code OWNER TO postgres;
 
 --
--- TOC entry 280 (class 1259 OID 16701)
+-- TOC entry 274 (class 1259 OID 16701)
 -- Name: regulatory_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1678,7 +1579,7 @@ CREATE TABLE public.regulatory_code (
 ALTER TABLE public.regulatory_code OWNER TO postgres;
 
 --
--- TOC entry 281 (class 1259 OID 16704)
+-- TOC entry 275 (class 1259 OID 16704)
 -- Name: release_point; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1724,7 +1625,7 @@ CREATE TABLE public.release_point (
 ALTER TABLE public.release_point OWNER TO postgres;
 
 --
--- TOC entry 282 (class 1259 OID 16711)
+-- TOC entry 276 (class 1259 OID 16711)
 -- Name: release_point_appt; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1740,7 +1641,7 @@ CREATE TABLE public.release_point_appt (
 ALTER TABLE public.release_point_appt OWNER TO postgres;
 
 --
--- TOC entry 283 (class 1259 OID 16718)
+-- TOC entry 277 (class 1259 OID 16718)
 -- Name: release_point_appt_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1755,8 +1656,8 @@ CREATE SEQUENCE public.release_point_appt_id_seq
 ALTER TABLE public.release_point_appt_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4895 (class 0 OID 0)
--- Dependencies: 283
+-- TOC entry 4819 (class 0 OID 0)
+-- Dependencies: 277
 -- Name: release_point_appt_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1764,7 +1665,7 @@ ALTER SEQUENCE public.release_point_appt_id_seq OWNED BY public.release_point_ap
 
 
 --
--- TOC entry 316 (class 1259 OID 106507)
+-- TOC entry 303 (class 1259 OID 106507)
 -- Name: release_point_appt_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1779,7 +1680,7 @@ ALTER TABLE public.release_point_appt ALTER COLUMN id ADD GENERATED ALWAYS AS ID
 
 
 --
--- TOC entry 284 (class 1259 OID 16719)
+-- TOC entry 278 (class 1259 OID 16719)
 -- Name: release_point_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1794,8 +1695,8 @@ CREATE SEQUENCE public.release_point_id_seq
 ALTER TABLE public.release_point_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4896 (class 0 OID 0)
--- Dependencies: 284
+-- TOC entry 4820 (class 0 OID 0)
+-- Dependencies: 278
 -- Name: release_point_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1803,7 +1704,7 @@ ALTER SEQUENCE public.release_point_id_seq OWNED BY public.release_point.id;
 
 
 --
--- TOC entry 307 (class 1259 OID 73740)
+-- TOC entry 294 (class 1259 OID 73740)
 -- Name: release_point_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1818,7 +1719,7 @@ ALTER TABLE public.release_point ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 285 (class 1259 OID 16720)
+-- TOC entry 279 (class 1259 OID 16720)
 -- Name: release_point_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1833,7 +1734,7 @@ CREATE TABLE public.release_point_type_code (
 ALTER TABLE public.release_point_type_code OWNER TO postgres;
 
 --
--- TOC entry 286 (class 1259 OID 16723)
+-- TOC entry 280 (class 1259 OID 16723)
 -- Name: report_attachment_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1848,8 +1749,8 @@ CREATE SEQUENCE public.report_attachment_id_seq
 ALTER TABLE public.report_attachment_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4897 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 4821 (class 0 OID 0)
+-- Dependencies: 280
 -- Name: report_attachment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1857,7 +1758,7 @@ ALTER SEQUENCE public.report_attachment_id_seq OWNED BY public.attachment.id;
 
 
 --
--- TOC entry 287 (class 1259 OID 16724)
+-- TOC entry 281 (class 1259 OID 16724)
 -- Name: report_history; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1885,7 +1786,7 @@ CREATE TABLE public.report_history (
 ALTER TABLE public.report_history OWNER TO postgres;
 
 --
--- TOC entry 288 (class 1259 OID 16732)
+-- TOC entry 282 (class 1259 OID 16732)
 -- Name: report_history_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1900,8 +1801,8 @@ CREATE SEQUENCE public.report_history_id_seq
 ALTER TABLE public.report_history_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4898 (class 0 OID 0)
--- Dependencies: 288
+-- TOC entry 4822 (class 0 OID 0)
+-- Dependencies: 282
 -- Name: report_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1909,7 +1810,7 @@ ALTER SEQUENCE public.report_history_id_seq OWNED BY public.report_history.id;
 
 
 --
--- TOC entry 303 (class 1259 OID 24591)
+-- TOC entry 290 (class 1259 OID 24591)
 -- Name: report_tracker; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1925,7 +1826,7 @@ CREATE TABLE public.report_tracker (
 ALTER TABLE public.report_tracker OWNER TO postgres;
 
 --
--- TOC entry 289 (class 1259 OID 16733)
+-- TOC entry 283 (class 1259 OID 16733)
 -- Name: reporting_period; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1950,7 +1851,7 @@ CREATE TABLE public.reporting_period (
 ALTER TABLE public.reporting_period OWNER TO postgres;
 
 --
--- TOC entry 290 (class 1259 OID 16740)
+-- TOC entry 284 (class 1259 OID 16740)
 -- Name: reporting_period_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1964,7 +1865,7 @@ CREATE TABLE public.reporting_period_code (
 ALTER TABLE public.reporting_period_code OWNER TO postgres;
 
 --
--- TOC entry 291 (class 1259 OID 16743)
+-- TOC entry 285 (class 1259 OID 16743)
 -- Name: reporting_period_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1979,8 +1880,8 @@ CREATE SEQUENCE public.reporting_period_id_seq
 ALTER TABLE public.reporting_period_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4899 (class 0 OID 0)
--- Dependencies: 291
+-- TOC entry 4823 (class 0 OID 0)
+-- Dependencies: 285
 -- Name: reporting_period_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1988,7 +1889,7 @@ ALTER SEQUENCE public.reporting_period_id_seq OWNED BY public.reporting_period.i
 
 
 --
--- TOC entry 309 (class 1259 OID 73811)
+-- TOC entry 296 (class 1259 OID 73811)
 -- Name: reporting_period_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2003,7 +1904,7 @@ ALTER TABLE public.reporting_period ALTER COLUMN id ADD GENERATED ALWAYS AS IDEN
 
 
 --
--- TOC entry 292 (class 1259 OID 16744)
+-- TOC entry 286 (class 1259 OID 16744)
 -- Name: schema_version_cef; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2024,63 +1925,7 @@ CREATE TABLE public.schema_version_cef (
 ALTER TABLE public.schema_version_cef OWNER TO postgres;
 
 --
--- TOC entry 293 (class 1259 OID 16750)
--- Name: slt_config; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.slt_config (
-    id integer NOT NULL,
-    name character varying(64),
-    value character varying(2000),
-    program_system_code character varying(20)
-);
-
-
-ALTER TABLE public.slt_config OWNER TO postgres;
-
---
--- TOC entry 294 (class 1259 OID 16755)
--- Name: slt_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.slt_config_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.slt_config_id_seq OWNER TO postgres;
-
---
--- TOC entry 4900 (class 0 OID 0)
--- Dependencies: 294
--- Name: slt_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.slt_config_id_seq OWNED BY public.slt_config.id;
-
-
---
--- TOC entry 295 (class 1259 OID 16756)
--- Name: slt_properties; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.slt_properties (
-    name character varying(64) NOT NULL,
-    label character varying(64) NOT NULL,
-    description character varying(255) NOT NULL,
-    datatype character varying(20) NOT NULL,
-    required boolean DEFAULT true NOT NULL
-);
-
-
-ALTER TABLE public.slt_properties OWNER TO postgres;
-
---
--- TOC entry 296 (class 1259 OID 16760)
+-- TOC entry 287 (class 1259 OID 16760)
 -- Name: tribal_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2093,7 +1938,7 @@ CREATE TABLE public.tribal_code (
 ALTER TABLE public.tribal_code OWNER TO postgres;
 
 --
--- TOC entry 297 (class 1259 OID 16763)
+-- TOC entry 288 (class 1259 OID 16763)
 -- Name: unit_measure_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2115,7 +1960,7 @@ CREATE TABLE public.unit_measure_code (
 ALTER TABLE public.unit_measure_code OWNER TO postgres;
 
 --
--- TOC entry 298 (class 1259 OID 16770)
+-- TOC entry 289 (class 1259 OID 16770)
 -- Name: unit_type_code; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2128,107 +1973,7 @@ CREATE TABLE public.unit_type_code (
 ALTER TABLE public.unit_type_code OWNER TO postgres;
 
 --
--- TOC entry 299 (class 1259 OID 16773)
--- Name: user_facility_association; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.user_facility_association (
-    id bigint NOT NULL,
-    master_facility_id bigint NOT NULL,
-    user_role_id bigint NOT NULL,
-    approved boolean DEFAULT false NOT NULL,
-    created_by character varying(255) NOT NULL,
-    created_date timestamp without time zone DEFAULT now() NOT NULL,
-    last_modified_by character varying(255) NOT NULL,
-    last_modified_date timestamp without time zone DEFAULT now() NOT NULL,
-    cdx_user_id character varying(255) NOT NULL
-);
-
-
-ALTER TABLE public.user_facility_association OWNER TO postgres;
-
---
--- TOC entry 300 (class 1259 OID 16781)
--- Name: user_facility_association_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.user_facility_association_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.user_facility_association_id_seq OWNER TO postgres;
-
---
--- TOC entry 4901 (class 0 OID 0)
--- Dependencies: 300
--- Name: user_facility_association_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.user_facility_association_id_seq OWNED BY public.user_facility_association.id;
-
-
---
--- TOC entry 301 (class 1259 OID 16782)
--- Name: user_feedback; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.user_feedback (
-    id integer NOT NULL,
-    report_id bigint,
-    easy_and_intuitive smallint,
-    data_entry_via_screens smallint,
-    data_entry_via_bulk_upload smallint,
-    calculation_screens smallint,
-    controls_and_control_paths smallint,
-    quality_assurance_checks smallint,
-    overall_reporting_time smallint,
-    beneficial_functionality_description character varying(2000),
-    difficult_application_functionality_description character varying(2000),
-    additional_features_or_enhancements_description character varying(2000),
-    created_by character varying(255),
-    created_date timestamp without time zone NOT NULL,
-    last_modified_by character varying(255),
-    last_modified_date timestamp without time zone NOT NULL,
-    facility_name character varying(80),
-    year smallint,
-    user_name character varying(255),
-    program_system_code character varying(20)
-);
-
-
-ALTER TABLE public.user_feedback OWNER TO postgres;
-
---
--- TOC entry 302 (class 1259 OID 16787)
--- Name: user_feedback_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.user_feedback_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.user_feedback_id_seq OWNER TO postgres;
-
---
--- TOC entry 4902 (class 0 OID 0)
--- Dependencies: 302
--- Name: user_feedback_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.user_feedback_id_seq OWNED BY public.user_feedback.id;
-
-
---
--- TOC entry 4426 (class 2604 OID 16817)
+-- TOC entry 4388 (class 2604 OID 16817)
 -- Name: attachment id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2236,7 +1981,7 @@ ALTER TABLE ONLY public.attachment ALTER COLUMN id SET DEFAULT nextval('public.r
 
 
 --
--- TOC entry 4430 (class 2604 OID 16818)
+-- TOC entry 4392 (class 2604 OID 16818)
 -- Name: communication id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2244,7 +1989,7 @@ ALTER TABLE ONLY public.communication ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 4431 (class 2604 OID 16821)
+-- TOC entry 4393 (class 2604 OID 16821)
 -- Name: control_path id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2252,23 +1997,7 @@ ALTER TABLE ONLY public.control_path ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- TOC entry 4434 (class 2604 OID 16824)
--- Name: eis_transaction_attachment id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.eis_transaction_attachment ALTER COLUMN id SET DEFAULT nextval('public.eis_transaction_attachment_id_seq'::regclass);
-
-
---
--- TOC entry 4437 (class 2604 OID 16825)
--- Name: eis_transaction_history id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.eis_transaction_history ALTER COLUMN id SET DEFAULT nextval('public.eis_transaction_history_id_seq'::regclass);
-
-
---
--- TOC entry 4438 (class 2604 OID 16826)
+-- TOC entry 4394 (class 2604 OID 16826)
 -- Name: eis_tri_xref id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2276,7 +2005,7 @@ ALTER TABLE ONLY public.eis_tri_xref ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- TOC entry 4441 (class 2604 OID 16827)
+-- TOC entry 4397 (class 2604 OID 16827)
 -- Name: emission id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2284,7 +2013,7 @@ ALTER TABLE ONLY public.emission ALTER COLUMN id SET DEFAULT nextval('public.emi
 
 
 --
--- TOC entry 4443 (class 2604 OID 16828)
+-- TOC entry 4399 (class 2604 OID 16828)
 -- Name: emission_factor id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2292,7 +2021,7 @@ ALTER TABLE ONLY public.emission_factor ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 4449 (class 2604 OID 16831)
+-- TOC entry 4405 (class 2604 OID 16831)
 -- Name: emissions_report id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2300,7 +2029,7 @@ ALTER TABLE ONLY public.emissions_report ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 4450 (class 2604 OID 16833)
+-- TOC entry 4406 (class 2604 OID 16833)
 -- Name: energy_conversion_factor id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2308,7 +2037,7 @@ ALTER TABLE ONLY public.energy_conversion_factor ALTER COLUMN id SET DEFAULT nex
 
 
 --
--- TOC entry 4453 (class 2604 OID 16837)
+-- TOC entry 4409 (class 2604 OID 16837)
 -- Name: master_facility_naics_xref id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2316,7 +2045,7 @@ ALTER TABLE ONLY public.master_facility_naics_xref ALTER COLUMN id SET DEFAULT n
 
 
 --
--- TOC entry 4456 (class 2604 OID 16838)
+-- TOC entry 4412 (class 2604 OID 16838)
 -- Name: master_facility_record id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2324,7 +2053,7 @@ ALTER TABLE ONLY public.master_facility_record ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 4460 (class 2604 OID 16839)
+-- TOC entry 4416 (class 2604 OID 16839)
 -- Name: monthly_fuel_reporting id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2332,7 +2061,7 @@ ALTER TABLE ONLY public.monthly_fuel_reporting ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 4466 (class 2604 OID 16843)
+-- TOC entry 4422 (class 2604 OID 16843)
 -- Name: report_history id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2340,40 +2069,7 @@ ALTER TABLE ONLY public.report_history ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 4468 (class 2604 OID 16845)
--- Name: slt_config id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.slt_config ALTER COLUMN id SET DEFAULT nextval('public.slt_config_id_seq'::regclass);
-
-
---
--- TOC entry 4477 (class 2604 OID 16846)
--- Name: user_facility_association id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_facility_association ALTER COLUMN id SET DEFAULT nextval('public.user_facility_association_id_seq'::regclass);
-
-
---
--- TOC entry 4478 (class 2604 OID 16847)
--- Name: user_feedback id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_feedback ALTER COLUMN id SET DEFAULT nextval('public.user_feedback_id_seq'::regclass);
-
-
---
--- TOC entry 4481 (class 2606 OID 16879)
--- Name: admin_properties admin_properties_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.admin_properties
-    ADD CONSTRAINT admin_properties_pkey PRIMARY KEY (name);
-
-
---
--- TOC entry 4483 (class 2606 OID 16881)
+-- TOC entry 4430 (class 2606 OID 16881)
 -- Name: agency agency_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2382,7 +2078,7 @@ ALTER TABLE ONLY public.agency
 
 
 --
--- TOC entry 4485 (class 2606 OID 16883)
+-- TOC entry 4432 (class 2606 OID 16883)
 -- Name: aircraft_engine_type_code aircraft_engine_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2391,7 +2087,7 @@ ALTER TABLE ONLY public.aircraft_engine_type_code
 
 
 --
--- TOC entry 4489 (class 2606 OID 16885)
+-- TOC entry 4436 (class 2606 OID 16885)
 -- Name: calculation_material_code calculation_material_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2400,7 +2096,7 @@ ALTER TABLE ONLY public.calculation_material_code
 
 
 --
--- TOC entry 4491 (class 2606 OID 16887)
+-- TOC entry 4438 (class 2606 OID 16887)
 -- Name: calculation_method_code calculation_method_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2409,7 +2105,7 @@ ALTER TABLE ONLY public.calculation_method_code
 
 
 --
--- TOC entry 4493 (class 2606 OID 16889)
+-- TOC entry 4440 (class 2606 OID 16889)
 -- Name: calculation_parameter_type_code calculation_parameter_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2418,7 +2114,7 @@ ALTER TABLE ONLY public.calculation_parameter_type_code
 
 
 --
--- TOC entry 4495 (class 2606 OID 16891)
+-- TOC entry 4442 (class 2606 OID 16891)
 -- Name: communication communication_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2427,7 +2123,7 @@ ALTER TABLE ONLY public.communication
 
 
 --
--- TOC entry 4497 (class 2606 OID 16893)
+-- TOC entry 4444 (class 2606 OID 16893)
 -- Name: contact_type_code contact_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2436,7 +2132,7 @@ ALTER TABLE ONLY public.contact_type_code
 
 
 --
--- TOC entry 4501 (class 2606 OID 16895)
+-- TOC entry 4448 (class 2606 OID 16895)
 -- Name: control_assignment control_assignment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2445,7 +2141,7 @@ ALTER TABLE ONLY public.control_assignment
 
 
 --
--- TOC entry 4503 (class 2606 OID 16897)
+-- TOC entry 4450 (class 2606 OID 16897)
 -- Name: control_measure_code control_measure_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2454,7 +2150,7 @@ ALTER TABLE ONLY public.control_measure_code
 
 
 --
--- TOC entry 4505 (class 2606 OID 16899)
+-- TOC entry 4452 (class 2606 OID 16899)
 -- Name: control_path control_path_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2463,7 +2159,7 @@ ALTER TABLE ONLY public.control_path
 
 
 --
--- TOC entry 4507 (class 2606 OID 16901)
+-- TOC entry 4454 (class 2606 OID 16901)
 -- Name: control_path_pollutant control_path_pollutant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2472,7 +2168,7 @@ ALTER TABLE ONLY public.control_path_pollutant
 
 
 --
--- TOC entry 4499 (class 2606 OID 16903)
+-- TOC entry 4446 (class 2606 OID 16903)
 -- Name: control control_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2481,7 +2177,7 @@ ALTER TABLE ONLY public.control
 
 
 --
--- TOC entry 4510 (class 2606 OID 16905)
+-- TOC entry 4457 (class 2606 OID 16905)
 -- Name: control_pollutant control_pollutant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2490,7 +2186,7 @@ ALTER TABLE ONLY public.control_pollutant
 
 
 --
--- TOC entry 4513 (class 2606 OID 16907)
+-- TOC entry 4460 (class 2606 OID 16907)
 -- Name: eis_latlong_tolerance_lookup eis_latlong_tolerance_lookup_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2499,25 +2195,7 @@ ALTER TABLE ONLY public.eis_latlong_tolerance_lookup
 
 
 --
--- TOC entry 4515 (class 2606 OID 16909)
--- Name: eis_transaction_attachment eis_transaction_attachment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.eis_transaction_attachment
-    ADD CONSTRAINT eis_transaction_attachment_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 4517 (class 2606 OID 16911)
--- Name: eis_transaction_history eis_transaction_history_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.eis_transaction_history
-    ADD CONSTRAINT eis_transaction_history_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 4519 (class 2606 OID 16913)
+-- TOC entry 4462 (class 2606 OID 16913)
 -- Name: eis_tri_xref eis_tri_xref_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2526,7 +2204,7 @@ ALTER TABLE ONLY public.eis_tri_xref
 
 
 --
--- TOC entry 4526 (class 2606 OID 16915)
+-- TOC entry 4469 (class 2606 OID 16915)
 -- Name: emission_factor emission_factor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2535,7 +2213,7 @@ ALTER TABLE ONLY public.emission_factor
 
 
 --
--- TOC entry 4530 (class 2606 OID 16917)
+-- TOC entry 4473 (class 2606 OID 16917)
 -- Name: emission_formula_variable_code emission_formula_variable_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2544,7 +2222,7 @@ ALTER TABLE ONLY public.emission_formula_variable_code
 
 
 --
--- TOC entry 4528 (class 2606 OID 16919)
+-- TOC entry 4471 (class 2606 OID 16919)
 -- Name: emission_formula_variable emission_formula_variable_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2553,7 +2231,7 @@ ALTER TABLE ONLY public.emission_formula_variable
 
 
 --
--- TOC entry 4522 (class 2606 OID 16921)
+-- TOC entry 4465 (class 2606 OID 16921)
 -- Name: emission emission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2562,7 +2240,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4532 (class 2606 OID 16923)
+-- TOC entry 4475 (class 2606 OID 16923)
 -- Name: emissions_operating_type_code emissions_operating_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2571,7 +2249,7 @@ ALTER TABLE ONLY public.emissions_operating_type_code
 
 
 --
--- TOC entry 4534 (class 2606 OID 16925)
+-- TOC entry 4477 (class 2606 OID 16925)
 -- Name: emissions_process emissions_process_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2580,7 +2258,7 @@ ALTER TABLE ONLY public.emissions_process
 
 
 --
--- TOC entry 4537 (class 2606 OID 16927)
+-- TOC entry 4480 (class 2606 OID 16927)
 -- Name: emissions_report emissions_report_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2589,7 +2267,7 @@ ALTER TABLE ONLY public.emissions_report
 
 
 --
--- TOC entry 4541 (class 2606 OID 16929)
+-- TOC entry 4484 (class 2606 OID 16929)
 -- Name: emissions_unit emissions_unit_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2598,7 +2276,7 @@ ALTER TABLE ONLY public.emissions_unit
 
 
 --
--- TOC entry 4543 (class 2606 OID 16931)
+-- TOC entry 4486 (class 2606 OID 16931)
 -- Name: energy_conversion_factor energy_conversion_factor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2607,7 +2285,7 @@ ALTER TABLE ONLY public.energy_conversion_factor
 
 
 --
--- TOC entry 4545 (class 2606 OID 16933)
+-- TOC entry 4488 (class 2606 OID 16933)
 -- Name: facility_category_code facility_category_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2616,7 +2294,7 @@ ALTER TABLE ONLY public.facility_category_code
 
 
 --
--- TOC entry 4550 (class 2606 OID 73810)
+-- TOC entry 4493 (class 2606 OID 73810)
 -- Name: facility_naics_xref facility_naics_xref_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2625,7 +2303,7 @@ ALTER TABLE ONLY public.facility_naics_xref
 
 
 --
--- TOC entry 4554 (class 2606 OID 16937)
+-- TOC entry 4497 (class 2606 OID 16937)
 -- Name: facility_site_contact facility_site_contact_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2634,7 +2312,7 @@ ALTER TABLE ONLY public.facility_site_contact
 
 
 --
--- TOC entry 4547 (class 2606 OID 16939)
+-- TOC entry 4490 (class 2606 OID 16939)
 -- Name: facility_site facility_site_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2643,7 +2321,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4556 (class 2606 OID 16941)
+-- TOC entry 4499 (class 2606 OID 16941)
 -- Name: facility_source_type_code facility_source_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2652,7 +2330,7 @@ ALTER TABLE ONLY public.facility_source_type_code
 
 
 --
--- TOC entry 4558 (class 2606 OID 16943)
+-- TOC entry 4501 (class 2606 OID 16943)
 -- Name: fips_country_code fips_country_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2661,7 +2339,7 @@ ALTER TABLE ONLY public.fips_country_code
 
 
 --
--- TOC entry 4560 (class 2606 OID 16945)
+-- TOC entry 4503 (class 2606 OID 16945)
 -- Name: fips_county fips_county_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2670,7 +2348,7 @@ ALTER TABLE ONLY public.fips_county
 
 
 --
--- TOC entry 4562 (class 2606 OID 16947)
+-- TOC entry 4505 (class 2606 OID 16947)
 -- Name: fips_state_code fips_state_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2679,7 +2357,7 @@ ALTER TABLE ONLY public.fips_state_code
 
 
 --
--- TOC entry 4564 (class 2606 OID 16949)
+-- TOC entry 4507 (class 2606 OID 16949)
 -- Name: hap_facility_category_code hap_facility_category_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2688,7 +2366,7 @@ ALTER TABLE ONLY public.hap_facility_category_code
 
 
 --
--- TOC entry 4568 (class 2606 OID 16951)
+-- TOC entry 4511 (class 2606 OID 16951)
 -- Name: master_facility_record master_facility_record_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2697,7 +2375,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4566 (class 2606 OID 16953)
+-- TOC entry 4509 (class 2606 OID 16953)
 -- Name: master_facility_naics_xref mfr_naics_xref_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2706,7 +2384,7 @@ ALTER TABLE ONLY public.master_facility_naics_xref
 
 
 --
--- TOC entry 4570 (class 2606 OID 16955)
+-- TOC entry 4513 (class 2606 OID 16955)
 -- Name: monthly_fuel_reporting monthly_fuel_reporting_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2715,7 +2393,7 @@ ALTER TABLE ONLY public.monthly_fuel_reporting
 
 
 --
--- TOC entry 4574 (class 2606 OID 16957)
+-- TOC entry 4517 (class 2606 OID 16957)
 -- Name: naics_code_industry naics_code_industry_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2724,7 +2402,7 @@ ALTER TABLE ONLY public.naics_code_industry
 
 
 --
--- TOC entry 4572 (class 2606 OID 16959)
+-- TOC entry 4515 (class 2606 OID 16959)
 -- Name: naics_code naics_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2733,7 +2411,7 @@ ALTER TABLE ONLY public.naics_code
 
 
 --
--- TOC entry 4577 (class 2606 OID 16961)
+-- TOC entry 4520 (class 2606 OID 16961)
 -- Name: operating_detail operating_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2742,7 +2420,7 @@ ALTER TABLE ONLY public.operating_detail
 
 
 --
--- TOC entry 4579 (class 2606 OID 16963)
+-- TOC entry 4522 (class 2606 OID 16963)
 -- Name: operating_status_code operating_status_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2751,7 +2429,7 @@ ALTER TABLE ONLY public.operating_status_code
 
 
 --
--- TOC entry 4581 (class 2606 OID 16965)
+-- TOC entry 4524 (class 2606 OID 16965)
 -- Name: point_source_scc_code point_source_scc_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2760,7 +2438,7 @@ ALTER TABLE ONLY public.point_source_scc_code
 
 
 --
--- TOC entry 4583 (class 2606 OID 16967)
+-- TOC entry 4526 (class 2606 OID 16967)
 -- Name: pollutant pollutant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2769,7 +2447,7 @@ ALTER TABLE ONLY public.pollutant
 
 
 --
--- TOC entry 4585 (class 2606 OID 16969)
+-- TOC entry 4528 (class 2606 OID 16969)
 -- Name: program_system_code program_system_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2778,7 +2456,7 @@ ALTER TABLE ONLY public.program_system_code
 
 
 --
--- TOC entry 4587 (class 2606 OID 16971)
+-- TOC entry 4530 (class 2606 OID 16971)
 -- Name: regulatory_code regulatory_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2787,7 +2465,7 @@ ALTER TABLE ONLY public.regulatory_code
 
 
 --
--- TOC entry 4591 (class 2606 OID 16973)
+-- TOC entry 4534 (class 2606 OID 16973)
 -- Name: release_point_appt release_point_appt_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2796,7 +2474,7 @@ ALTER TABLE ONLY public.release_point_appt
 
 
 --
--- TOC entry 4593 (class 2606 OID 16977)
+-- TOC entry 4536 (class 2606 OID 16977)
 -- Name: release_point_type_code release_point_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2805,7 +2483,7 @@ ALTER TABLE ONLY public.release_point_type_code
 
 
 --
--- TOC entry 4487 (class 2606 OID 16979)
+-- TOC entry 4434 (class 2606 OID 16979)
 -- Name: attachment report_attachment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2814,7 +2492,7 @@ ALTER TABLE ONLY public.attachment
 
 
 --
--- TOC entry 4597 (class 2606 OID 16981)
+-- TOC entry 4540 (class 2606 OID 16981)
 -- Name: report_history report_history_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2823,7 +2501,7 @@ ALTER TABLE ONLY public.report_history
 
 
 --
--- TOC entry 4624 (class 2606 OID 49170)
+-- TOC entry 4556 (class 2606 OID 49170)
 -- Name: report_tracker report_tracker_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2832,7 +2510,7 @@ ALTER TABLE ONLY public.report_tracker
 
 
 --
--- TOC entry 4600 (class 2606 OID 16983)
+-- TOC entry 4543 (class 2606 OID 16983)
 -- Name: reporting_period reporting_period_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2841,7 +2519,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4602 (class 2606 OID 16985)
+-- TOC entry 4545 (class 2606 OID 16985)
 -- Name: reporting_period_code reporting_period_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2850,7 +2528,7 @@ ALTER TABLE ONLY public.reporting_period_code
 
 
 --
--- TOC entry 4604 (class 2606 OID 16987)
+-- TOC entry 4547 (class 2606 OID 16987)
 -- Name: schema_version_cef schema_version_cef_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2859,25 +2537,7 @@ ALTER TABLE ONLY public.schema_version_cef
 
 
 --
--- TOC entry 4607 (class 2606 OID 16989)
--- Name: slt_config slt_config_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.slt_config
-    ADD CONSTRAINT slt_config_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 4609 (class 2606 OID 16991)
--- Name: slt_properties slt_properties_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.slt_properties
-    ADD CONSTRAINT slt_properties_pkey PRIMARY KEY (name);
-
-
---
--- TOC entry 4611 (class 2606 OID 16993)
+-- TOC entry 4550 (class 2606 OID 16993)
 -- Name: tribal_code tribal_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2886,7 +2546,7 @@ ALTER TABLE ONLY public.tribal_code
 
 
 --
--- TOC entry 4613 (class 2606 OID 16995)
+-- TOC entry 4552 (class 2606 OID 16995)
 -- Name: unit_measure_code unit_measure_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2895,7 +2555,7 @@ ALTER TABLE ONLY public.unit_measure_code
 
 
 --
--- TOC entry 4615 (class 2606 OID 16997)
+-- TOC entry 4554 (class 2606 OID 16997)
 -- Name: unit_type_code unit_type_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2904,34 +2564,7 @@ ALTER TABLE ONLY public.unit_type_code
 
 
 --
--- TOC entry 4617 (class 2606 OID 16999)
--- Name: user_facility_association user_facility_association_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_facility_association
-    ADD CONSTRAINT user_facility_association_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 4619 (class 2606 OID 17001)
--- Name: user_facility_association user_facility_association_user_role_id_master_facility_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_facility_association
-    ADD CONSTRAINT user_facility_association_user_role_id_master_facility_id_key UNIQUE (user_role_id, master_facility_id);
-
-
---
--- TOC entry 4622 (class 2606 OID 17003)
--- Name: user_feedback user_feedback_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_feedback
-    ADD CONSTRAINT user_feedback_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 4511 (class 1259 OID 98334)
+-- TOC entry 4458 (class 1259 OID 98334)
 -- Name: fki_control_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2939,7 +2572,7 @@ CREATE INDEX fki_control_fkey ON public.control_pollutant USING btree (control_i
 
 
 --
--- TOC entry 4508 (class 1259 OID 98350)
+-- TOC entry 4455 (class 1259 OID 98350)
 -- Name: fki_control_path_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2947,7 +2580,7 @@ CREATE INDEX fki_control_path_fkey ON public.control_path_pollutant USING btree 
 
 
 --
--- TOC entry 4598 (class 1259 OID 65572)
+-- TOC entry 4541 (class 1259 OID 65572)
 -- Name: fki_emissions_process_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2955,7 +2588,7 @@ CREATE INDEX fki_emissions_process_fkey ON public.reporting_period USING btree (
 
 
 --
--- TOC entry 4535 (class 1259 OID 65566)
+-- TOC entry 4478 (class 1259 OID 65566)
 -- Name: fki_emissions_unit_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2963,7 +2596,7 @@ CREATE INDEX fki_emissions_unit_fkey ON public.emissions_process USING btree (em
 
 
 --
--- TOC entry 4551 (class 1259 OID 73774)
+-- TOC entry 4494 (class 1259 OID 73774)
 -- Name: fki_facility_naics_code_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2971,7 +2604,7 @@ CREATE INDEX fki_facility_naics_code_fkey ON public.facility_naics_xref USING bt
 
 
 --
--- TOC entry 4588 (class 1259 OID 73795)
+-- TOC entry 4531 (class 1259 OID 73795)
 -- Name: fki_facility_site_cascade_delete_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2979,7 +2612,7 @@ CREATE INDEX fki_facility_site_cascade_delete_fkey ON public.release_point USING
 
 
 --
--- TOC entry 4552 (class 1259 OID 57365)
+-- TOC entry 4495 (class 1259 OID 57365)
 -- Name: fki_facility_site_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2987,7 +2620,7 @@ CREATE INDEX fki_facility_site_fkey ON public.facility_naics_xref USING btree (i
 
 
 --
--- TOC entry 4548 (class 1259 OID 57371)
+-- TOC entry 4491 (class 1259 OID 57371)
 -- Name: fki_mailing_state_code_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2995,7 +2628,7 @@ CREATE INDEX fki_mailing_state_code_fkey ON public.facility_site USING btree (ma
 
 
 --
--- TOC entry 4589 (class 1259 OID 65552)
+-- TOC entry 4532 (class 1259 OID 65552)
 -- Name: fki_report_tracker_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3003,7 +2636,7 @@ CREATE INDEX fki_report_tracker_fkey ON public.release_point USING btree (id);
 
 
 --
--- TOC entry 4575 (class 1259 OID 81943)
+-- TOC entry 4518 (class 1259 OID 81943)
 -- Name: fki_reporting_period_cascade_delete_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3011,7 +2644,7 @@ CREATE INDEX fki_reporting_period_cascade_delete_fkey ON public.operating_detail
 
 
 --
--- TOC entry 4523 (class 1259 OID 65583)
+-- TOC entry 4466 (class 1259 OID 65583)
 -- Name: fki_reporting_period_fkey; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3019,7 +2652,7 @@ CREATE INDEX fki_reporting_period_fkey ON public.emission USING btree (reporting
 
 
 --
--- TOC entry 4520 (class 1259 OID 17004)
+-- TOC entry 4463 (class 1259 OID 17004)
 -- Name: i_eis_tri_xref_trifid; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3027,7 +2660,7 @@ CREATE INDEX i_eis_tri_xref_trifid ON public.eis_tri_xref USING btree (trifid);
 
 
 --
--- TOC entry 4524 (class 1259 OID 17005)
+-- TOC entry 4467 (class 1259 OID 17005)
 -- Name: i_emissions_pollutantCode; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3035,7 +2668,7 @@ CREATE INDEX "i_emissions_pollutantCode" ON public.emission USING btree (polluta
 
 
 --
--- TOC entry 4538 (class 1259 OID 17006)
+-- TOC entry 4481 (class 1259 OID 17006)
 -- Name: i_emissions_report_eisProgramId; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3043,7 +2676,7 @@ CREATE INDEX "i_emissions_report_eisProgramId" ON public.emissions_report USING 
 
 
 --
--- TOC entry 4539 (class 1259 OID 17007)
+-- TOC entry 4482 (class 1259 OID 17007)
 -- Name: i_emissions_report_year; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3051,15 +2684,7 @@ CREATE INDEX i_emissions_report_year ON public.emissions_report USING btree (yea
 
 
 --
--- TOC entry 4620 (class 1259 OID 17008)
--- Name: i_user_feedback_year; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX i_user_feedback_year ON public.user_feedback USING btree (year);
-
-
---
--- TOC entry 4594 (class 1259 OID 17009)
+-- TOC entry 4537 (class 1259 OID 17009)
 -- Name: idx_report_history_reportid; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3067,7 +2692,7 @@ CREATE INDEX idx_report_history_reportid ON public.report_history USING btree (r
 
 
 --
--- TOC entry 4595 (class 1259 OID 17010)
+-- TOC entry 4538 (class 1259 OID 17010)
 -- Name: idx_report_history_reportid_action; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3075,7 +2700,7 @@ CREATE INDEX idx_report_history_reportid_action ON public.report_history USING b
 
 
 --
--- TOC entry 4605 (class 1259 OID 17011)
+-- TOC entry 4548 (class 1259 OID 17011)
 -- Name: schema_version_cef_s_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -3083,7 +2708,7 @@ CREATE INDEX schema_version_cef_s_idx ON public.schema_version_cef USING btree (
 
 
 --
--- TOC entry 4713 (class 2606 OID 17013)
+-- TOC entry 4643 (class 2606 OID 17013)
 -- Name: reporting_period calc_param_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3092,7 +2717,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4714 (class 2606 OID 17018)
+-- TOC entry 4644 (class 2606 OID 17018)
 -- Name: reporting_period calculation_material_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3101,7 +2726,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4695 (class 2606 OID 17023)
+-- TOC entry 4625 (class 2606 OID 17023)
 -- Name: point_source_scc_code calculation_material_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3110,7 +2735,7 @@ ALTER TABLE ONLY public.point_source_scc_code
 
 
 --
--- TOC entry 4715 (class 2606 OID 17028)
+-- TOC entry 4645 (class 2606 OID 17028)
 -- Name: reporting_period calculation_parameter_type_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3119,7 +2744,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4666 (class 2606 OID 17033)
+-- TOC entry 4596 (class 2606 OID 17033)
 -- Name: facility_site category_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3128,7 +2753,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4685 (class 2606 OID 17038)
+-- TOC entry 4615 (class 2606 OID 17038)
 -- Name: master_facility_record category_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3137,7 +2762,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4663 (class 2606 OID 17043)
+-- TOC entry 4593 (class 2606 OID 17043)
 -- Name: energy_conversion_factor cf_denominator_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3146,7 +2771,7 @@ ALTER TABLE ONLY public.energy_conversion_factor
 
 
 --
--- TOC entry 4664 (class 2606 OID 17048)
+-- TOC entry 4594 (class 2606 OID 17048)
 -- Name: energy_conversion_factor cf_numerator_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3155,7 +2780,7 @@ ALTER TABLE ONLY public.energy_conversion_factor
 
 
 --
--- TOC entry 4625 (class 2606 OID 17053)
+-- TOC entry 4557 (class 2606 OID 17053)
 -- Name: attachment communication_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3164,7 +2789,7 @@ ALTER TABLE ONLY public.attachment
 
 
 --
--- TOC entry 4636 (class 2606 OID 98329)
+-- TOC entry 4568 (class 2606 OID 98329)
 -- Name: control_pollutant control_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3173,7 +2798,7 @@ ALTER TABLE ONLY public.control_pollutant
 
 
 --
--- TOC entry 4627 (class 2606 OID 17078)
+-- TOC entry 4559 (class 2606 OID 17078)
 -- Name: control control_measure_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3182,7 +2807,7 @@ ALTER TABLE ONLY public.control
 
 
 --
--- TOC entry 4634 (class 2606 OID 98345)
+-- TOC entry 4566 (class 2606 OID 98345)
 -- Name: control_path_pollutant control_path_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3191,7 +2816,7 @@ ALTER TABLE ONLY public.control_path_pollutant
 
 
 --
--- TOC entry 4631 (class 2606 OID 106522)
+-- TOC entry 4563 (class 2606 OID 106522)
 -- Name: control_assignment control_path_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3200,7 +2825,7 @@ ALTER TABLE ONLY public.control_assignment
 
 
 --
--- TOC entry 4633 (class 2606 OID 17088)
+-- TOC entry 4565 (class 2606 OID 17088)
 -- Name: control_path_pollutant control_path_pollutant_pollutant_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3209,7 +2834,7 @@ ALTER TABLE ONLY public.control_path_pollutant
 
 
 --
--- TOC entry 4635 (class 2606 OID 17093)
+-- TOC entry 4567 (class 2606 OID 17093)
 -- Name: control_pollutant control_pollutant_pollutant_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3218,7 +2843,7 @@ ALTER TABLE ONLY public.control_pollutant
 
 
 --
--- TOC entry 4628 (class 2606 OID 17098)
+-- TOC entry 4560 (class 2606 OID 17098)
 -- Name: control control_previous_year_status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3227,7 +2852,7 @@ ALTER TABLE ONLY public.control
 
 
 --
--- TOC entry 4629 (class 2606 OID 17103)
+-- TOC entry 4561 (class 2606 OID 17103)
 -- Name: control control_status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3236,7 +2861,7 @@ ALTER TABLE ONLY public.control
 
 
 --
--- TOC entry 4667 (class 2606 OID 17108)
+-- TOC entry 4597 (class 2606 OID 17108)
 -- Name: facility_site county_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3245,7 +2870,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4677 (class 2606 OID 17113)
+-- TOC entry 4607 (class 2606 OID 17113)
 -- Name: facility_site_contact county_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3254,7 +2879,7 @@ ALTER TABLE ONLY public.facility_site_contact
 
 
 --
--- TOC entry 4686 (class 2606 OID 17118)
+-- TOC entry 4616 (class 2606 OID 17118)
 -- Name: master_facility_record county_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3263,7 +2888,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4646 (class 2606 OID 17123)
+-- TOC entry 4576 (class 2606 OID 17123)
 -- Name: emission_factor ef_calc_material_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3272,7 +2897,7 @@ ALTER TABLE ONLY public.emission_factor
 
 
 --
--- TOC entry 4665 (class 2606 OID 17128)
+-- TOC entry 4595 (class 2606 OID 17128)
 -- Name: energy_conversion_factor ef_calc_material_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3281,7 +2906,7 @@ ALTER TABLE ONLY public.energy_conversion_factor
 
 
 --
--- TOC entry 4647 (class 2606 OID 17133)
+-- TOC entry 4577 (class 2606 OID 17133)
 -- Name: emission_factor ef_calc_parameter_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3290,7 +2915,7 @@ ALTER TABLE ONLY public.emission_factor
 
 
 --
--- TOC entry 4648 (class 2606 OID 17138)
+-- TOC entry 4578 (class 2606 OID 17138)
 -- Name: emission_factor ef_control_measure_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3299,7 +2924,7 @@ ALTER TABLE ONLY public.emission_factor
 
 
 --
--- TOC entry 4649 (class 2606 OID 17143)
+-- TOC entry 4579 (class 2606 OID 17143)
 -- Name: emission_factor ef_denominator_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3308,7 +2933,7 @@ ALTER TABLE ONLY public.emission_factor
 
 
 --
--- TOC entry 4650 (class 2606 OID 17148)
+-- TOC entry 4580 (class 2606 OID 17148)
 -- Name: emission_factor ef_numerator_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3317,16 +2942,7 @@ ALTER TABLE ONLY public.emission_factor
 
 
 --
--- TOC entry 4637 (class 2606 OID 17153)
--- Name: eis_transaction_attachment eis_transaction_history_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.eis_transaction_attachment
-    ADD CONSTRAINT eis_transaction_history_fkey FOREIGN KEY (eis_transaction_history_id) REFERENCES public.eis_transaction_history(id);
-
-
---
--- TOC entry 4639 (class 2606 OID 17158)
+-- TOC entry 4569 (class 2606 OID 17158)
 -- Name: emission emission_denominator_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3335,7 +2951,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4651 (class 2606 OID 17163)
+-- TOC entry 4581 (class 2606 OID 17163)
 -- Name: emission_formula_variable emission_formula_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3344,7 +2960,7 @@ ALTER TABLE ONLY public.emission_formula_variable
 
 
 --
--- TOC entry 4640 (class 2606 OID 17168)
+-- TOC entry 4570 (class 2606 OID 17168)
 -- Name: emission emission_numerator_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3353,7 +2969,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4641 (class 2606 OID 17178)
+-- TOC entry 4571 (class 2606 OID 17178)
 -- Name: emission emission_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3362,7 +2978,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4642 (class 2606 OID 17183)
+-- TOC entry 4572 (class 2606 OID 17183)
 -- Name: emission emissions_calc_method_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3371,7 +2987,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4643 (class 2606 OID 17188)
+-- TOC entry 4573 (class 2606 OID 17188)
 -- Name: emission emissions_pollutant_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3380,7 +2996,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4721 (class 2606 OID 90131)
+-- TOC entry 4651 (class 2606 OID 90131)
 -- Name: reporting_period emissions_process_cascade_delete_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3389,7 +3005,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4711 (class 2606 OID 65573)
+-- TOC entry 4641 (class 2606 OID 65573)
 -- Name: release_point_appt emissions_process_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3398,7 +3014,7 @@ ALTER TABLE ONLY public.release_point_appt
 
 
 --
--- TOC entry 4652 (class 2606 OID 17198)
+-- TOC entry 4582 (class 2606 OID 17198)
 -- Name: emissions_process emissions_process_previous_year_status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3407,7 +3023,7 @@ ALTER TABLE ONLY public.emissions_process
 
 
 --
--- TOC entry 4653 (class 2606 OID 17203)
+-- TOC entry 4583 (class 2606 OID 17203)
 -- Name: emissions_process emissions_process_status_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3416,7 +3032,7 @@ ALTER TABLE ONLY public.emissions_process
 
 
 --
--- TOC entry 4712 (class 2606 OID 17213)
+-- TOC entry 4642 (class 2606 OID 17213)
 -- Name: report_history emissions_report_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3425,7 +3041,7 @@ ALTER TABLE ONLY public.report_history
 
 
 --
--- TOC entry 4626 (class 2606 OID 17218)
+-- TOC entry 4558 (class 2606 OID 17218)
 -- Name: attachment emissions_report_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3434,7 +3050,7 @@ ALTER TABLE ONLY public.attachment
 
 
 --
--- TOC entry 4655 (class 2606 OID 65561)
+-- TOC entry 4585 (class 2606 OID 65561)
 -- Name: emissions_process emissions_unit_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3443,7 +3059,7 @@ ALTER TABLE ONLY public.emissions_process
 
 
 --
--- TOC entry 4658 (class 2606 OID 17223)
+-- TOC entry 4588 (class 2606 OID 17223)
 -- Name: emissions_unit emissions_unit_previous_year_status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3452,7 +3068,7 @@ ALTER TABLE ONLY public.emissions_unit
 
 
 --
--- TOC entry 4644 (class 2606 OID 17228)
+-- TOC entry 4574 (class 2606 OID 17228)
 -- Name: emission energy_conversion_factor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3461,7 +3077,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4696 (class 2606 OID 17233)
+-- TOC entry 4626 (class 2606 OID 17233)
 -- Name: release_point exit_gas_flow_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3470,7 +3086,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4697 (class 2606 OID 17238)
+-- TOC entry 4627 (class 2606 OID 17238)
 -- Name: release_point exit_gas_velocity_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3479,7 +3095,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4675 (class 2606 OID 73769)
+-- TOC entry 4605 (class 2606 OID 73769)
 -- Name: facility_naics_xref facility_naics_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3488,7 +3104,7 @@ ALTER TABLE ONLY public.facility_naics_xref
 
 
 --
--- TOC entry 4710 (class 2606 OID 73790)
+-- TOC entry 4640 (class 2606 OID 73790)
 -- Name: release_point facility_site_cascade_delete_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3497,7 +3113,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4676 (class 2606 OID 73804)
+-- TOC entry 4606 (class 2606 OID 73804)
 -- Name: facility_naics_xref facility_site_cascade_delete_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3506,7 +3122,7 @@ ALTER TABLE ONLY public.facility_naics_xref
 
 
 --
--- TOC entry 4678 (class 2606 OID 17253)
+-- TOC entry 4608 (class 2606 OID 17253)
 -- Name: facility_site_contact facility_site_contact_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3515,7 +3131,7 @@ ALTER TABLE ONLY public.facility_site_contact
 
 
 --
--- TOC entry 4662 (class 2606 OID 65555)
+-- TOC entry 4592 (class 2606 OID 65555)
 -- Name: emissions_unit facility_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3524,7 +3140,7 @@ ALTER TABLE ONLY public.emissions_unit
 
 
 --
--- TOC entry 4709 (class 2606 OID 73785)
+-- TOC entry 4639 (class 2606 OID 73785)
 -- Name: release_point facility_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3533,7 +3149,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4630 (class 2606 OID 98321)
+-- TOC entry 4562 (class 2606 OID 98321)
 -- Name: control facility_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3542,7 +3158,7 @@ ALTER TABLE ONLY public.control
 
 
 --
--- TOC entry 4632 (class 2606 OID 98337)
+-- TOC entry 4564 (class 2606 OID 98337)
 -- Name: control_path facility_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3551,7 +3167,7 @@ ALTER TABLE ONLY public.control_path
 
 
 --
--- TOC entry 4681 (class 2606 OID 180236)
+-- TOC entry 4611 (class 2606 OID 180236)
 -- Name: facility_site_contact facility_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3560,7 +3176,7 @@ ALTER TABLE ONLY public.facility_site_contact
 
 
 --
--- TOC entry 4698 (class 2606 OID 17263)
+-- TOC entry 4628 (class 2606 OID 17263)
 -- Name: release_point fence_line_distance_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3569,7 +3185,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4682 (class 2606 OID 17268)
+-- TOC entry 4612 (class 2606 OID 17268)
 -- Name: fips_county fips_county_state_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3578,7 +3194,7 @@ ALTER TABLE ONLY public.fips_county
 
 
 --
--- TOC entry 4716 (class 2606 OID 17273)
+-- TOC entry 4646 (class 2606 OID 17273)
 -- Name: reporting_period fuel_use_material_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3587,7 +3203,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4717 (class 2606 OID 17278)
+-- TOC entry 4647 (class 2606 OID 17278)
 -- Name: reporting_period fuel_use_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3596,7 +3212,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4699 (class 2606 OID 17283)
+-- TOC entry 4629 (class 2606 OID 17283)
 -- Name: release_point fugitive_height_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3605,7 +3221,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4700 (class 2606 OID 17288)
+-- TOC entry 4630 (class 2606 OID 17288)
 -- Name: release_point fugitive_length_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3614,7 +3230,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4701 (class 2606 OID 17293)
+-- TOC entry 4631 (class 2606 OID 17293)
 -- Name: release_point fugitive_width_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3623,7 +3239,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4718 (class 2606 OID 17298)
+-- TOC entry 4648 (class 2606 OID 17298)
 -- Name: reporting_period heat_content_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3632,7 +3248,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4679 (class 2606 OID 17303)
+-- TOC entry 4609 (class 2606 OID 17303)
 -- Name: facility_site_contact mailing_state_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3641,7 +3257,7 @@ ALTER TABLE ONLY public.facility_site_contact
 
 
 --
--- TOC entry 4687 (class 2606 OID 17313)
+-- TOC entry 4617 (class 2606 OID 17313)
 -- Name: master_facility_record mailing_state_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3650,7 +3266,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4672 (class 2606 OID 57366)
+-- TOC entry 4602 (class 2606 OID 57366)
 -- Name: facility_site mailing_state_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3659,16 +3275,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4724 (class 2606 OID 17318)
--- Name: user_facility_association master_facility_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_facility_association
-    ADD CONSTRAINT master_facility_id_fkey FOREIGN KEY (master_facility_id) REFERENCES public.master_facility_record(id);
-
-
---
--- TOC entry 4656 (class 2606 OID 17323)
+-- TOC entry 4586 (class 2606 OID 17323)
 -- Name: emissions_report master_facility_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3677,7 +3284,7 @@ ALTER TABLE ONLY public.emissions_report
 
 
 --
--- TOC entry 4683 (class 2606 OID 17328)
+-- TOC entry 4613 (class 2606 OID 17328)
 -- Name: master_facility_naics_xref mfr_naics_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3686,7 +3293,7 @@ ALTER TABLE ONLY public.master_facility_naics_xref
 
 
 --
--- TOC entry 4684 (class 2606 OID 17333)
+-- TOC entry 4614 (class 2606 OID 17333)
 -- Name: master_facility_naics_xref mfr_naics_mfr_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3695,16 +3302,7 @@ ALTER TABLE ONLY public.master_facility_naics_xref
 
 
 --
--- TOC entry 4722 (class 2606 OID 17338)
--- Name: slt_config name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.slt_config
-    ADD CONSTRAINT name_fkey FOREIGN KEY (name) REFERENCES public.slt_properties(name);
-
-
---
--- TOC entry 4654 (class 2606 OID 17358)
+-- TOC entry 4584 (class 2606 OID 17358)
 -- Name: emissions_process process_aircraft_engine_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3713,7 +3311,7 @@ ALTER TABLE ONLY public.emissions_process
 
 
 --
--- TOC entry 4668 (class 2606 OID 17363)
+-- TOC entry 4598 (class 2606 OID 17363)
 -- Name: facility_site program_system_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3722,7 +3320,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4657 (class 2606 OID 17368)
+-- TOC entry 4587 (class 2606 OID 17368)
 -- Name: emissions_report program_system_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3731,34 +3329,7 @@ ALTER TABLE ONLY public.emissions_report
 
 
 --
--- TOC entry 4723 (class 2606 OID 17373)
--- Name: slt_config program_system_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.slt_config
-    ADD CONSTRAINT program_system_code_fkey FOREIGN KEY (program_system_code) REFERENCES public.program_system_code(code);
-
-
---
--- TOC entry 4638 (class 2606 OID 17378)
--- Name: eis_transaction_history program_system_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.eis_transaction_history
-    ADD CONSTRAINT program_system_code_fkey FOREIGN KEY (program_system_code) REFERENCES public.program_system_code(code);
-
-
---
--- TOC entry 4725 (class 2606 OID 17383)
--- Name: user_feedback program_system_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_feedback
-    ADD CONSTRAINT program_system_code_fkey FOREIGN KEY (program_system_code) REFERENCES public.program_system_code(code);
-
-
---
--- TOC entry 4688 (class 2606 OID 17388)
+-- TOC entry 4618 (class 2606 OID 17388)
 -- Name: master_facility_record program_system_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3767,7 +3338,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4702 (class 2606 OID 17403)
+-- TOC entry 4632 (class 2606 OID 17403)
 -- Name: release_point release_point_previous_year_status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3776,7 +3347,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4703 (class 2606 OID 17408)
+-- TOC entry 4633 (class 2606 OID 17408)
 -- Name: release_point release_point_type_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3785,7 +3356,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4673 (class 2606 OID 73780)
+-- TOC entry 4603 (class 2606 OID 73780)
 -- Name: facility_site report_tracker_cascade_delete_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3794,7 +3365,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4674 (class 2606 OID 73775)
+-- TOC entry 4604 (class 2606 OID 73775)
 -- Name: facility_site report_tracker_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3803,7 +3374,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4719 (class 2606 OID 17428)
+-- TOC entry 4649 (class 2606 OID 17428)
 -- Name: reporting_period reporting_period_emissions_operating_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3812,7 +3383,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4645 (class 2606 OID 65578)
+-- TOC entry 4575 (class 2606 OID 65578)
 -- Name: emission reporting_period_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3821,7 +3392,7 @@ ALTER TABLE ONLY public.emission
 
 
 --
--- TOC entry 4694 (class 2606 OID 81933)
+-- TOC entry 4624 (class 2606 OID 81933)
 -- Name: operating_detail reporting_period_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3830,7 +3401,7 @@ ALTER TABLE ONLY public.operating_detail
 
 
 --
--- TOC entry 4693 (class 2606 OID 17433)
+-- TOC entry 4623 (class 2606 OID 17433)
 -- Name: monthly_fuel_reporting reporting_period_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3839,7 +3410,7 @@ ALTER TABLE ONLY public.monthly_fuel_reporting
 
 
 --
--- TOC entry 4720 (class 2606 OID 17438)
+-- TOC entry 4650 (class 2606 OID 17438)
 -- Name: reporting_period reporting_period_type_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3848,7 +3419,7 @@ ALTER TABLE ONLY public.reporting_period
 
 
 --
--- TOC entry 4704 (class 2606 OID 17443)
+-- TOC entry 4634 (class 2606 OID 17443)
 -- Name: release_point rp_operating_status_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3857,7 +3428,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4669 (class 2606 OID 17448)
+-- TOC entry 4599 (class 2606 OID 17448)
 -- Name: facility_site source_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3866,7 +3437,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4689 (class 2606 OID 17453)
+-- TOC entry 4619 (class 2606 OID 17453)
 -- Name: master_facility_record source_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3875,7 +3446,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4705 (class 2606 OID 17458)
+-- TOC entry 4635 (class 2606 OID 17458)
 -- Name: release_point stack_diameter_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3884,7 +3455,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4706 (class 2606 OID 17463)
+-- TOC entry 4636 (class 2606 OID 17463)
 -- Name: release_point stack_height_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3893,7 +3464,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4707 (class 2606 OID 17468)
+-- TOC entry 4637 (class 2606 OID 17468)
 -- Name: release_point stack_length_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3902,7 +3473,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4708 (class 2606 OID 17473)
+-- TOC entry 4638 (class 2606 OID 17473)
 -- Name: release_point stack_width_uom_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3911,7 +3482,7 @@ ALTER TABLE ONLY public.release_point
 
 
 --
--- TOC entry 4680 (class 2606 OID 17478)
+-- TOC entry 4610 (class 2606 OID 17478)
 -- Name: facility_site_contact state_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3920,7 +3491,7 @@ ALTER TABLE ONLY public.facility_site_contact
 
 
 --
--- TOC entry 4690 (class 2606 OID 17488)
+-- TOC entry 4620 (class 2606 OID 17488)
 -- Name: master_facility_record state_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3929,7 +3500,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4670 (class 2606 OID 17493)
+-- TOC entry 4600 (class 2606 OID 17493)
 -- Name: facility_site status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3938,7 +3509,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4691 (class 2606 OID 17498)
+-- TOC entry 4621 (class 2606 OID 17498)
 -- Name: master_facility_record status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3947,7 +3518,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4671 (class 2606 OID 17503)
+-- TOC entry 4601 (class 2606 OID 17503)
 -- Name: facility_site tribal_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3956,7 +3527,7 @@ ALTER TABLE ONLY public.facility_site
 
 
 --
--- TOC entry 4692 (class 2606 OID 17508)
+-- TOC entry 4622 (class 2606 OID 17508)
 -- Name: master_facility_record tribal_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3965,7 +3536,7 @@ ALTER TABLE ONLY public.master_facility_record
 
 
 --
--- TOC entry 4659 (class 2606 OID 17518)
+-- TOC entry 4589 (class 2606 OID 17518)
 -- Name: emissions_unit unit_measure_cd_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3974,7 +3545,7 @@ ALTER TABLE ONLY public.emissions_unit
 
 
 --
--- TOC entry 4660 (class 2606 OID 17523)
+-- TOC entry 4590 (class 2606 OID 17523)
 -- Name: emissions_unit unit_status_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3983,7 +3554,7 @@ ALTER TABLE ONLY public.emissions_unit
 
 
 --
--- TOC entry 4661 (class 2606 OID 17528)
+-- TOC entry 4591 (class 2606 OID 17528)
 -- Name: emissions_unit unit_type_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3992,16 +3563,7 @@ ALTER TABLE ONLY public.emissions_unit
 
 
 --
--- TOC entry 4726 (class 2606 OID 17533)
--- Name: user_feedback user_feedback_report_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.user_feedback
-    ADD CONSTRAINT user_feedback_report_id_fkey FOREIGN KEY (report_id) REFERENCES public.emissions_report(id);
-
-
---
--- TOC entry 4871 (class 0 OID 0)
+-- TOC entry 4797 (class 0 OID 0)
 -- Dependencies: 3
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -4012,10 +3574,11 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2024-01-29 13:54:44
+-- Completed on 2024-05-13 11:20:09
 
 --
 -- PostgreSQL database dump complete
+--
 
 -- Create user CAERS_READONLY with password caersread
 CREATE USER CAERS_READONLY WITH PASSWORD 'caersread';
