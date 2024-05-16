@@ -23,11 +23,6 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
-CREATE SCHEMA public;
-
-
-ALTER SCHEMA public OWNER TO postgres;
-
 --
 -- TOC entry 4796 (class 0 OID 0)
 -- Dependencies: 3
