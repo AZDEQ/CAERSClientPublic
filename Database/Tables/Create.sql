@@ -3576,7 +3576,7 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 
 -- Create user CAERS_READONLY with password caersread
-CREATE USER CAERS_READONLY WITH PASSWORD 'caersread';
+CREATE USER CAERS_READONLY WITH PASSWORD '[Enter the password that you would like to set for user CAERS_READONLY here]';
 -- Grant CONNECT privilege to allow CAERS_READONLY to connect to the database (replace aws_db_test)
 GRANT CONNECT ON DATABASE "CAERSLocal" TO CAERS_READONLY;
 -- Grant USAGE privilege on the schema (replace test_schema)
