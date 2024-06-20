@@ -7,7 +7,7 @@ CAERS Client retrieves air emissions data from CAERS that was reported by their 
 CLONE REPOSITORY FROM GITHUB
 
 Launch Eclipse and click New, enter C:\Users\[Enter your Windows Username Here]\caersclient-workspace to create a new workspace called caersclient-workspace and exit Eclipse. A .metadata folder will be created in the recently created caersclient-workspace folder.
-Download and install Github Desktop. Launch Github Desktop, File --> URL tab --> Clone repository and enter https://github.com/AZDEQ/CAERSClient in Repository URL and C:\Users\850200\caersclient-workspace\CAERSClient in Local path.and click Clone.
+Download and install Github Desktop. Launch Github Desktop, File --> URL tab --> Clone repository and enter https://github.com/AZDEQ/CAERSClientPublic in Repository URL and C:\Users\<your user>\caersclient-workspace\CAERSClient in Local path.and click Clone.
 Launch Eclipse and click caersclient-workspace. Click Import Existing Projects. Browse and select the CAERSClient folder. Select the APIApp project and click Finish.
 
 INSTALL JRE
